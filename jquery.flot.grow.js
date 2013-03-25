@@ -29,11 +29,15 @@ THE SOFTWARE.
         series: {
             grow: {
                 active: true,
-                valueIndex: 1,
                 stepDelay: 20,
                 steps:100,
-                stepMode: "linear",
-                stepDirection: "up",
+                growings:[
+                    {
+                        valueIndex: 1,
+                        stepMode: "linear",
+                        stepDirection: "up"
+                    }                    
+                ],
                 debug:{active:false,createDocuTemplate: null}
             }
         }
@@ -74,6 +78,7 @@ THE SOFTWARE.
                 if (done === false){
                     data = plot.getData();
                     data.actualStep = 0;
+                    data.growingIndex = 0;
                     for (var j = 0; j < data.length; j++){
                         data[j].dataOrg = clone(data[j].data);
                         for (var i = 0; i < data[j].data.length; i++){ data[j].data[i][valueIndex] = 0;}
@@ -95,19 +100,24 @@ THE SOFTWARE.
             }
         }
         function growing(){
+            var growing;
             if (data.actualStep < opt.series.grow.steps){
                 data.actualStep++;
                 for(var j = 0; j < data.length; j++){
-                    if (typeof data[j].grow.stepMode === "function"){
-                        data[j].grow.stepMode(data[j],data.actualStep,valueIndex);
-                    }
-                    else{
-                        if (data[j].grow.stepMode === "linear"){ growLinear();}
-                        else if (data[j].grow.stepMode === "maximum"){ growMaximum();}
-                        else if (data[j].grow.stepMode === "delay"){ growDelay();}
-                        else{growNone();}
+                    for(var g = 0; g < data[j].grow.growings.length; g++){
+                        growing = data[j].grow.growings[g];
+                        if (typeof growing.stepMode === "function"){
+                            growing.stepMode(data[j],data.actualStep,growing);
+                        }
+                        else{
+                            if (growing.stepMode === "linear"){ growLinear();}
+                            else if (growing.stepMode === "maximum"){ growMaximum();}
+                            else if (growing.stepMode === "delay"){ growDelay();}
+                            else{growNone();}
+                        }
                     }
                 }
+console.log(data.actualStep,data[0].data[0][1]);
                 plt.setData(data);
                 plt.draw();
             }
@@ -115,18 +125,18 @@ THE SOFTWARE.
             function growNone(){
                 if (data.actualStep === 1){
                     for (var i = 0; i < data[j].data.length; i++){
-                        data[j].data[i][valueIndex] = data[j].dataOrg[i][valueIndex];
+                        data[j].data[i][valueIndex] = data[j].dataOrg[i][growing.valueIndex];
                     }
                 }
             }
             function growLinear(){
                 if (data.actualStep <= data[j].grow.steps){
                     for (var i = 0; i < data[j].data.length; i++){	
-                        if (data[j].grow.stepDirection === "up"){	
-                            data[j].data[i][valueIndex] = data[j].dataOrg[i][valueIndex] / data[j].grow.steps * data.actualStep;
+                        if (growing.stepDirection === "up"){	
+                            data[j].data[i][growing.valueIndex] = data[j].dataOrg[i][growing.valueIndex] / data[j].grow.steps * data.actualStep;
                         }
-                        else if(data[j].grow.stepDirection === "down"){
-                            data[j].data[i][valueIndex] = data[j].dataOrg[i][valueIndex] + (data[j].yaxis.max - data[j].dataOrg[i][valueIndex]) / data[j].grow.steps * (data[j].grow.steps - data.actualStep); 
+                        else if(growing.stepDirection === "down"){
+                            data[j].data[i][growing.valueIndex] = data[j].dataOrg[i][growing.valueIndex] + (data[j].yaxis.max - data[j].dataOrg[i][growing.valueIndex]) / data[j].grow.steps * (data[j].grow.steps - data.actualStep); 
                         }
                     }
                 }
@@ -134,11 +144,11 @@ THE SOFTWARE.
             function growMaximum(){
                 if (data.actualStep <= data[j].grow.steps){
                     for (var i = 0; i < data[j].data.length; i++){
-                        if (data[j].grow.stepDirection === "up"){
-                            data[j].data[i][valueIndex] = Math.min(data[j].dataOrg[i][valueIndex], data[j].yaxis.max / data[j].grow.steps * data.actualStep);
+                        if (growing.stepDirection === "up"){
+                            data[j].data[i][growing.valueIndex] = Math.min(data[j].dataOrg[i][growing.valueIndex], data[j].yaxis.max / data[j].grow.steps * data.actualStep);
                         }
-                        else if (data[j].grow.stepDirection === "down"){
-                            data[j].data[i][valueIndex] = Math.max(data[j].dataOrg[i][valueIndex], data[j].yaxis.max / data[j].grow.steps * (data[j].grow.steps - data.actualStep) ); 
+                        else if (growing.stepDirection === "down"){
+                            data[j].data[i][growing.valueIndex] = Math.max(data[j].dataOrg[i][growing.valueIndex], data[j].yaxis.max / data[j].grow.steps * (data[j].grow.steps - data.actualStep) ); 
                         }
                     }
                 }
@@ -146,7 +156,7 @@ THE SOFTWARE.
             function growDelay(){
                 if (data.actualStep == data[j].grow.steps){
                     for (var i = 0; i < data[j].data.length; i++){
-                        data[j].data[i][valueIndex] = data[j].dataOrg[i][valueIndex];
+                        data[j].data[i][growing.valueIndex] = data[j].dataOrg[i][growing.valueIndex];
                     }
                 }
             }
