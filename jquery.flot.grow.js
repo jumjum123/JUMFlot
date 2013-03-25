@@ -117,7 +117,6 @@ THE SOFTWARE.
                         }
                     }
                 }
-console.log(data.actualStep,data[0].data[0][1]);
                 plt.setData(data);
                 plt.draw();
             }
