@@ -549,10 +549,19 @@ THE SOFTWARE.
             $('<img />').attr('src',url).load(loaded).error(errorFound);
             return dfd.promise();
             function loaded(){loadedImg[name] = this;dfd.resolve();}
-            function errorFound(){loadedImg[name] = null;dfd.reject();}    
+            function errorFound(e,f,g){console.log(url,e);loadedImg[name] = null;dfd.reject();}    
         }
         function finish(){ callback(loadedImg); }
     }  
+    function getCanvases(placeholder){
+        var canvases = {
+            background:$("#placeholder").children(".flot-background"),
+            base:$("#placeholder").children(".flot-base"),
+            overlay:$("#placeholder").children(".flot-overlay")
+        };
+        return canvases;
+    }
+    
     function drawLines(plot,lines){
         var offset,series,ctx;
         offset = plot.getPlotOffset();
@@ -612,6 +621,7 @@ THE SOFTWARE.
     $.plot.JUMlib.data.createColors = createColors;
     $.plot.JUMlib.data.getColor = getColor;
     $.plot.JUMlib.data.loadImages = loadImages;
+    $.plot.JUMlib.data.getCanvases = getCanvases;
     $.plot.JUMlib.drawing = {};
     $.plot.JUMlib.drawing.drawLines = drawLines;
 })(jQuery);

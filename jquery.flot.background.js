@@ -28,7 +28,7 @@ THE SOFTWARE.
 
 (function ($){
     "use strict";
-    var pluginName = "background", pluginVersion = "0.3";
+    var pluginName = "background", pluginVersion = "0.4";
     var options ={
         grid:{
             background:{
@@ -52,12 +52,21 @@ THE SOFTWARE.
         }
         function drawBackground(plot,ctx){
             opt = plot.getOptions();
+            var zIndex = opt.grid.background.setZIndex;
             background = new Canvas("flot-background", plot.getPlaceholder());
-            if(opt.grid.background.setZIndex === true){
-                $(plot.getCanvas()).css('z-index',1);
-                $(background.element).css('z-index',0);                
+            if($.isNumeric(zIndex) === true){
+                    $(plot.getPlaceholder().children(".flot-overlay")).css('z-index',zIndex + 1);
+                    $(plot.getCanvas()).css('z-index',zIndex);
+                    $(background.element).css('z-index',zIndex - 1);                                
             }
-            else{ $(background.element).css('z-index',-1); }
+            else{
+                if(opt.grid.background.setZIndex === true){
+                    $(plot.getPlaceholder().children(".flot-overlay")).css('z-index',2);
+                    $(plot.getCanvas()).css('z-index',1);
+                    $(background.element).css('z-index',0);                
+                }
+                else{ $(background.element).css('z-index',-1); }
+            }
             bctx = background.context;
             offset = plot.getPlotOffset();
             bctx.save();

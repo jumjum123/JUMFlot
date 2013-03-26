@@ -58,7 +58,6 @@ THE SOFTWARE.
             {"url":"jquery.flot.JUMlib.js","loaded":false,"check":{"object":"series.radar","mode":"exists"}},
             {"url":"jquery.flot.JUMlib.js","loaded":false,"check":{"object":"series.spiral","mode":"exists"}},
             {"url":"jquery.flot.JUMlib.js","loaded":false,"check":{"object":"series.rose","mode":"exists"}},
-            {"url":"jquery.flot.canvas.js","loaded":false,"check":{"object":"canvas","mode":"equal","value":true}},
             {"url":"jquery.flot.mouse.js","loaded":false,"check":{"object":"grid.editable","mode":"equal","value":true}},
             {"url":"jquery.flot.mouse.js","loaded":false,"check":{"object":"series.bandwidth","mode":"exists"}},
             {"url":"jquery.flot.mouse.js","loaded":false,"check":{"object":"series.bubbles","mode":"exists"}},
@@ -81,7 +80,8 @@ THE SOFTWARE.
             {"url":"jquery.flot.spider.js","loaded":false,"check":{"object":"series.spider","mode":"exists"}},
             {"url":"jquery.flot.radar.js","loaded":false,"check":{"object":"series.radar","mode":"exists"}},
             {"url":"jquery.flot.spiral.js","loaded":false,"check":{"object":"series.spiral","mode":"exists"}},
-            {"url":"jquery.flot.rose.js","loaded":false,"check":{"object":"series.rose","mode":"exists"}}
+            {"url":"jquery.flot.rose.js","loaded":false,"check":{"object":"series.rose","mode":"exists"}},
+            {"url":"jquery.flot.background.js","loaded":false,"check":{"object":"grid.background","mode":"exists"}}
         ];
         this.getRequires = function(){ return requires; }
         this.getMissingPlugins = function(mode){ 
