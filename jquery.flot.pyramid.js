@@ -53,9 +53,9 @@ THE SOFTWARE.
         var  opt = null,offset = null,series = null,dataHeight = null, dataMax,centerX,canvasHeight,canvasWidth;
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
-            options.grid.show = false;
-            opt = options;
             if (options.series.pyramid.active){	
+                options.grid.show = false;
+                opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawSeries.push(drawSeries);
                 if(opt.series.pyramid.debug.active === true) { opt.series.pyramid.debug.createDocuTemplate = createDocuTemplate; }

@@ -44,8 +44,7 @@ THE SOFTWARE.
                 drawEdit: null,
                 drawHover: null
             }
-        },
-        grid:{show:false}
+        }
     };
     function init(plot) {
         var offset = null,opt = null,series = null,lctx;
@@ -54,6 +53,7 @@ THE SOFTWARE.
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
             if(options.series.spiral.active){
+                options.grid.show = false;
                 opt = options;
                 plot.hooks.drawSeries.push(drawSeries);
                 if(opt.series.spiral.debug.active === true) { opt.series.spiral.debug.createDocuTemplate = createDocuTemplate; }

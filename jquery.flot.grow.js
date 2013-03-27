@@ -28,7 +28,7 @@ THE SOFTWARE.
     var options ={
         series: {
             grow: {
-                active: true,
+                active: false,
                 stepDelay: 20,
                 steps:100,
                 growings:[

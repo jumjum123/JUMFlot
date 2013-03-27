@@ -45,7 +45,6 @@ THE SOFTWARE.
             }
         },
         grid:{
-            show:false,
             ranges:5,
             font: "18px Times New Roman"
         }
@@ -57,6 +56,7 @@ THE SOFTWARE.
         plot.hooks.processRawData.push(processRawData);
         function processOptions(plot,options){
             if(options.series.rose.active){
+                options.grid.show = false;
                 opt = options;
                 plot.hooks.drawSeries.push(drawSeries);
                 plot.hooks.draw.push(draw);
