@@ -68,6 +68,8 @@ THE SOFTWARE.
         function processOptions(plot,options){
             if(options.series.spider.active){
                 options.grid.show = false;
+                options.grid.ticks = 5;
+                options.grid.tickColor = "rgba(0,0,0,0.15)";
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.draw.push(draw);

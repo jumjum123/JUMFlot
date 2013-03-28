@@ -55,7 +55,7 @@ THE SOFTWARE.
         plot.hooks.processOptions.push(processOptions);
         plot.hooks.processRawData.push(processRawData);
         function processOptions(plot,options){
-            if(options.series.rose.active){
+            if(options.series.rose.active===true){
                 options.grid.show = false;
                 opt = options;
                 plot.hooks.drawSeries.push(drawSeries);

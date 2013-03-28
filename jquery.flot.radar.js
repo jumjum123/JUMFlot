@@ -46,7 +46,7 @@ THE SOFTWARE.
         var rcanvas = null, rctx = null,rfunc = null, rangle = 0;
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){ 
-            if(options.series.radar.active){
+            if(options.series.radar.active===true){
                 options.grid.show = false;
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);

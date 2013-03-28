@@ -52,7 +52,7 @@ THE SOFTWARE.
         var stepNo,rotationNo,pies = [],rfunc,angleStart;
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
-            if(options.series.spiral.active){
+            if(options.series.spiral.active===true){
                 options.grid.show = false;
                 opt = options;
                 plot.hooks.drawSeries.push(drawSeries);

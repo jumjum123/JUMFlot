@@ -44,7 +44,6 @@ THE SOFTWARE.
                 findMode: "circle"
             }
         },
-        grid:{show:false},
         yaxis:{min:0,max:100},
         xaxis:{min:0,max:100}
     };
@@ -81,6 +80,12 @@ THE SOFTWARE.
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
             if(options.series.rectangle.active){
+                options.grid.show = false;
+                var axes = plot.getAxes();
+                axes.yaxis.min = 0;
+                axes.yaxis.max = 100;
+                axes.xaxis.min = 0;
+                axes.xaxis.max = 100;
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawSeries.push(drawSeries);

@@ -53,7 +53,7 @@ THE SOFTWARE.
         var  opt = null,offset = null,series = null,dataHeight = null, dataMax,centerX,canvasHeight,canvasWidth;
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
-            if (options.series.pyramid.active){	
+            if (options.series.pyramid.active===true){	
                 options.grid.show = false;
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
