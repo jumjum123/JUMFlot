@@ -36,7 +36,11 @@ THE SOFTWARE.
                 drawbubble: drawbubbleDefault,
                 bubblelabel: { show:false, fillStyle:"black"},
                 debug:{active:false,createDocuTemplate: null}
-            },
+            }
+        }
+    };
+    var defaultOptions = {
+        series:{
             editMode: 'xy',    //could be none, x, y, xy, v
             nearBy:{
                 distance: 6,
@@ -71,6 +75,7 @@ THE SOFTWARE.
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
             if(options.series.bubbles.active){
+                $.plot.JUMlib.data.extendEmpty(options,defaultOptions);                
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawSeries.push(drawSeries);

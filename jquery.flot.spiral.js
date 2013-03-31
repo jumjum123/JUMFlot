@@ -36,7 +36,11 @@ THE SOFTWARE.
                 delay: 50,
                 highlight: { opacity: 0.5 },
                 debug:{active:false,createDocuTemplate: null}
-            },
+            }
+        }
+    };
+    var defaultOptions = {
+        series:{
             nearBy:{
                 distance: 6,
                 findItem: null,
@@ -46,6 +50,7 @@ THE SOFTWARE.
             }
         }
     };
+    var replaceOptions = { grid:{show:false} };
     function init(plot) {
         var offset = null,opt = null,series = null,lctx;
         var colors,sumPies,maxRadius,centerLeft,centerTop;
@@ -53,7 +58,8 @@ THE SOFTWARE.
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
             if(options.series.spiral.active===true){
-                options.grid.show = false;
+                $.extend(true,options,replaceOptions);
+                $.plot.JUMlib.data.extendEmpty(options,defaultOptions);
                 opt = options;
                 plot.hooks.drawSeries.push(drawSeries);
                 if(opt.series.spiral.debug.active === true) { opt.series.spiral.debug.createDocuTemplate = createDocuTemplate; }

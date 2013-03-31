@@ -46,7 +46,11 @@ THE SOFTWARE.
                     legStartAngle: 0 
                 },
                 debug:{active:false,createDocuTemplate: null}
-            },
+            }
+        }
+    };
+    var defaultOptions:{
+        series:{
             editMode: 'xy',    //could be none, x, y, xy, v
             nearBy:{
                 distance: 6,
@@ -55,7 +59,9 @@ THE SOFTWARE.
                 drawEdit: null,
                 drawHover: null
             }
-        },
+        }
+    };
+    var replaceOptions:{
         grid:{
             tickColor: "rgba(0,0,0,0.15)",
             ticks: 5,
@@ -67,9 +73,8 @@ THE SOFTWARE.
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
             if(options.series.spider.active){
-                options.grid.show = false;
-                options.grid.ticks = 5;
-                options.grid.tickColor = "rgba(0,0,0,0.15)";
+                $.extend(true,options,replaceOptions);
+                $.plot.JUMlib.data.extendEmpty(options,defaultOptions);
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.draw.push(draw);

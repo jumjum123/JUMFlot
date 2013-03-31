@@ -45,7 +45,11 @@ THE SOFTWARE.
                 opacity: 180,
                 highlight: { opacity: 0.5 },
                 debug:{active:false,createDocuTemplate: null}
-            },
+            }
+        }
+    };
+    var defaultOptions = {
+        series:{
             nearBy:{
                 distance: 6,
                 findItemDefault: null,
@@ -59,6 +63,7 @@ THE SOFTWARE.
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
             if(options.series.heatmap.active){
+                $.plot.JUMlib.data.extendEmpty(options,defaultOptions);                
                 opt = plot.getOptions();
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawBackground.push(drawBackground);

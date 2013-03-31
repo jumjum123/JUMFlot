@@ -36,13 +36,18 @@ THE SOFTWARE.
                 drawstep: drawStepDefault,
                 debug:{active:false,createDocuTemplate: null}
             }
-        },
-        editMode: 'y',    //could be none, x, y, xy, v
-        nearBy:{
-            distance: 6,
-            findItem: null,
-            findMode: "circle",
-            drawHover: null
+        }
+    };
+    var replaceOptions = { series:{ lines: { show:false } } };
+    var defaultOptions = {
+        series:{
+            editMode: 'y',    //could be none, x, y, xy, v
+            nearBy:{
+                distance: 6,
+                findItem: null,
+                findMode: "circle",
+                drawHover: null
+            }
         }   
     };
     function drawStepDefault(ctx,series,data,x,y,x2,color, isHighlight){
@@ -67,7 +72,8 @@ THE SOFTWARE.
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
             if (options.series.gantt.active){
-                options.series.lines.show = false;
+                $.extend(true,options,replaceOptions);
+                $.plot.JUMlib.data.extendEmpty(options,defaultOptions);
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.draw.push(draw);

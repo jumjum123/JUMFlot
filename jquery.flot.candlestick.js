@@ -42,6 +42,7 @@ THE SOFTWARE.
             }
         }
     };
+    var replaceOptions = { series:{ lines: { show:false } } };
     function drawCandlestickDefault(ctx,serie,data,hover){
         if(hover === true){
             var c = "rgba(255,255,255," + serie.candlestick.highlight.opacity + ")";
@@ -98,7 +99,7 @@ THE SOFTWARE.
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
             if (options.series.candlestick.active){
-                options.legend.show = false;
+                $.extend(true,options,replaceOptions);
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawSeries.push(drawSeries);

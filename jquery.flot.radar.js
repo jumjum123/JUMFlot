@@ -40,6 +40,7 @@ THE SOFTWARE.
             }
         }
     };
+    var replaceOptions = { grid:{ show:false } };
     function init(plot){ 
         var maxRadius = null, centerLeft = null, centerTop = null;
         var opt = null, series = null, data = null;
@@ -47,7 +48,7 @@ THE SOFTWARE.
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){ 
             if(options.series.radar.active===true){
-                options.grid.show = false;
+                $.extend(true,options,replaceOptions);
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.draw.push(draw);

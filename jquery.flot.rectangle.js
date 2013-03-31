@@ -37,7 +37,16 @@ THE SOFTWARE.
                 drawRectangle: drawRectangleDefault,
                 label: { show:false, fillStyle:"black"},
                 debug:{active:false,createDocuTemplate: null}
-            },
+            }
+        }
+    };
+    var replaceOptions:{
+        grid:{show:false},
+        xaxes:[{min:0,max:100}],
+        yaxes:[{min:0,max:100}]
+    };
+    var defaultOptions = {
+        series:{
             editMode: 'none',    //could be none, x, y, xy, v
             nearBy:{
                 distance: 6,
@@ -78,11 +87,8 @@ THE SOFTWARE.
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
             if(options.series.rectangle.active){
-                options.grid.show = false;
-                options.xaxes[0].min = 0;
-                options.xaxes[0].max = 100;
-                options.yaxes[0].min = 0;
-                options.yaxes[0].max = 100;
+                $.extend(true,options,replaceOptions);
+                $.plot.JUMlib.data.extendEmpty(options,defaultOptions);
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawSeries.push(drawSeries);

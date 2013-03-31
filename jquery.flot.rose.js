@@ -36,18 +36,25 @@ THE SOFTWARE.
                 dataMax: 100,
                 highlight: { opacity: 0.5 },
                 debug:{active:false,createDocuTemplate: null}
-            },
+            }
+        }
+    };
+    var replaceOptions = {
+        grid:{
+            ranges:5,
+            font: "18px Times New Roman"
+        }
+    };
+    var defaultOptions = {
+        series:{        
             nearBy:{distance: 6,
                 findItem: null,
                 findMode: "circle",
                 drawEdit: null,
                 drawHover: null
             }
-        },
-        grid:{
-            ranges:5,
-            font: "18px Times New Roman"
         }
+
     };
     function init(plot) {
         var offset = null,opt = null,series = null,lctx,data;
@@ -56,7 +63,8 @@ THE SOFTWARE.
         plot.hooks.processRawData.push(processRawData);
         function processOptions(plot,options){
             if(options.series.rose.active===true){
-                options.grid.show = false;
+                $.extend(true,options,replaceOptions);
+                $.plot.JUMlib.data.extendEmpty(options,defaultOptions);
                 opt = options;
                 plot.hooks.drawSeries.push(drawSeries);
                 plot.hooks.draw.push(draw);

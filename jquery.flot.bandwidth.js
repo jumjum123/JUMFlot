@@ -35,10 +35,15 @@ THE SOFTWARE.
                 highlight: { opacity: 0.5 },
                 drawBandwidth: drawBandwidthDefault,
                 debug:{active:false,createDocuTemplate: null}
-            },
-            editMode: 'y',    //could be none, x, y, xy, v
-            nearBy:{
-                distance: 6,
+            }
+        }
+    };
+    var replaceOptions = { series:{ lines: { show:false } } };
+    var defaultOptions = { 
+        series: {
+            editMode: 'y',
+            nearBy: {
+                distance: 7,
                 findItem: null,
                 findMode: "circle",
                 drawHover: null
@@ -59,7 +64,8 @@ THE SOFTWARE.
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
             if(options.series.bandwidth.active){
-                options.series.lines.show = false;
+                $.extend(true,options,replaceOptions);
+                $.plot.JUMlib.data.extendEmpty(options,defaultOptions);
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawSeries.push(drawSeries);

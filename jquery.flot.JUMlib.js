@@ -128,6 +128,16 @@ THE SOFTWARE.
             }
         }
     }
+    function extendEmpty(org,ext){
+        for(var i in ext){
+            if(!org[i]){ org[i] = ext[i];}
+            else{
+                if(typeof ext[i] === "object"){
+                    extendEmpty(org[i],ext[i]);
+                }   
+            }
+        }
+    }
     function docuObjectToEdit(obj,name){
         var msg = '<form name="editObject">';
         msg += '<input type="button" value="Create json" onclick="$.plot.JUMExample.createJSON();">';
@@ -636,6 +646,7 @@ THE SOFTWARE.
     $.plot.JUMlib.data.getColor = getColor;
     $.plot.JUMlib.data.loadImages = loadImages;
     $.plot.JUMlib.data.getCanvases = getCanvases;
+    $.plot.JUMlib.data.extendEmpty = extendEmpty;
     $.plot.JUMlib.drawing = {};
     $.plot.JUMlib.drawing.drawLines = drawLines;
 })(jQuery);
