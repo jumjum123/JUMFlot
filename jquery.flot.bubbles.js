@@ -143,7 +143,7 @@ THE SOFTWARE.
                 return item;
             }
         }
-        function drawHighlightBubblesOld(octx,serie,point,dataIndex,edit){
+        function drawHoverBubbles(octx,serie,point,dataIndex,edit){
             octx.save();
             octx.translate(-offset.left,-offset.top);
             var c = "rgba(255, 255, 255, " + serie.bubbles.highlight.opacity + ")";

@@ -533,7 +533,7 @@ THE SOFTWARE.
             return c;
         }
     }
-    function loadImages(images,maxWait,callback){
+    function loadImagesOld(images,maxWait,callback){
         var tmp,loadedImg = {};
         tmp = '$.when(';
         for(var i = 0; i < images.length; i++){
@@ -552,7 +552,21 @@ THE SOFTWARE.
             function errorFound(e,f,g){console.log(url,e);loadedImg[name] = null;dfd.reject();}    
         }
         function finish(){ callback(loadedImg); }
-    }  
+    } 
+    function loadImages(images,maxWait,callback){
+        var loadedImg = {},defs = [];
+        for(var i = 0; i < images.length; i++){ defs.push(loadImage(images[i])); }
+        $.when.apply(null,defs).then(function(){callback(loadedImg);});
+        function loadImage(img){
+            var dfd = $.Deferred(),t,url;
+            url = img.path + img.name + "." + img.type;
+            t = setInterval(function(){clearInterval(t);dfd.reject();},maxWait);
+            $('<img />').attr('src',url).load(loaded).error(errorFound);
+            return dfd.promise();
+            function loaded(){ loadedImg[img.name] = this;dfd.resolve();}
+            function errorFound(e,f,g){loadedImg[img.name] = null;dfd.reject();}    
+        }
+    } 
     function getCanvases(placeholder){
         var canvases = {
             background:$("#placeholder").children(".flot-background"),

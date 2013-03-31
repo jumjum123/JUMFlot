@@ -43,9 +43,7 @@ THE SOFTWARE.
                 distance: 6,
                 findMode: "circle"
             }
-        },
-        yaxis:{min:0,max:100},
-        xaxis:{min:0,max:100}
+        }
     };
     function drawRectangleDefault(ctx,serie,dataIndex){
         var d = serie.data[dataIndex];
@@ -81,11 +79,10 @@ THE SOFTWARE.
         function processOptions(plot,options){
             if(options.series.rectangle.active){
                 options.grid.show = false;
-                var axes = plot.getAxes();
-                axes.yaxis.min = 0;
-                axes.yaxis.max = 100;
-                axes.xaxis.min = 0;
-                axes.xaxis.max = 100;
+                options.xaxes[0].min = 0;
+                options.xaxes[0].max = 100;
+                options.yaxes[0].min = 0;
+                options.yaxes[0].max = 100;
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawSeries.push(drawSeries);
