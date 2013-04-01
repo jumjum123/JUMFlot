@@ -89,7 +89,6 @@ THE SOFTWARE.
         }    
         function processRawData(plot,s,data,datapoints){
             if(s.heatmap.show === true){
-console.log("pRD",s.nearBy.findItem,s.nearBy.distance,s.nearBy.drawEdit);
                 s.nearBy.findItemDefault = s.nearBy.findItem;
                 s.nearBy.findItem = findNearbyItemHeatmap;
                 var img = new Image();
