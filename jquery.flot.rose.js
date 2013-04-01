@@ -41,6 +41,7 @@ THE SOFTWARE.
     };
     var replaceOptions = {
         grid:{
+            show:false,
             ranges:5,
             font: "18px Times New Roman"
         }
@@ -83,17 +84,17 @@ THE SOFTWARE.
             return { data:z, form:frm};
         }
         function processRawData(plot,series,data,datapoints){
-            var canvas = plot.getCanvas();
-            maxRadius =  Math.min(canvas.width,canvas.height)/2 * opt.series.rose.roseSize;
-            centerTop = (canvas.height/2);
-            centerLeft = centerTop;
             if(series.rose.show === true){
+                var canvas = plot.getCanvas();
+                maxRadius =  Math.min(canvas.width,canvas.height)/2 * opt.series.rose.roseSize;
+                centerTop = (canvas.height/2);
+                centerLeft = centerTop;
                 colors = createColors(opt,series.data[0].length);
                 series.nearBy.findItem = findNearbyItemRose;
                 series.nearBy.drawHover = drawHoverRose;
                 offset = plot.getPlotOffset();
                 leafAngle = 360 / series.data.length;
-                offsetAngle = leafAngle * (1 - opt.series.rose.leafSize) / 2;
+                offsetAngle = leafAngle * (1 - opt.series.rose.leafSize) / 2;    
             }
         }
         function drawSeries(plot, ctx, serie){

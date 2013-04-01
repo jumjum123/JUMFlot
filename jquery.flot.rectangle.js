@@ -40,7 +40,7 @@ THE SOFTWARE.
             }
         }
     };
-    var replaceOptions:{
+    var replaceOptions = {
         grid:{show:false},
         xaxes:[{min:0,max:100}],
         yaxes:[{min:0,max:100}]

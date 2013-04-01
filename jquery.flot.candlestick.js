@@ -42,7 +42,12 @@ THE SOFTWARE.
             }
         }
     };
-    var replaceOptions = { series:{ lines: { show:false } } };
+    var replaceOptions = { 
+        series:{ 
+            lines: { show:false }
+        },
+        legend:{show:false}
+    };
     function drawCandlestickDefault(ctx,serie,data,hover){
         if(hover === true){
             var c = "rgba(255,255,255," + serie.candlestick.highlight.opacity + ")";

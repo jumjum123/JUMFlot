@@ -49,7 +49,7 @@ THE SOFTWARE.
             }
         }
     };
-    var defaultOptions:{
+    var defaultOptions = {
         series:{
             editMode: 'xy',    //could be none, x, y, xy, v
             nearBy:{
@@ -59,13 +59,14 @@ THE SOFTWARE.
                 drawEdit: null,
                 drawHover: null
             }
-        }
+        },
+        grid:{mode:"radar"}
     };
-    var replaceOptions:{
+    var replaceOptions = {
         grid:{
+            show:false,
             tickColor: "rgba(0,0,0,0.15)",
-            ticks: 5,
-            mode: "radar"
+            ticks: 5
         }
     };
     function init(plot){

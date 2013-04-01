@@ -40,7 +40,11 @@ THE SOFTWARE.
                     font: "20px Times New Roman",
                     fillStyle: "Black"
                 }
-            },
+            }
+        }
+    };
+    var defaultOptions = {
+        series:{        
             nearBy:{
                 distance: 6,
                 findItem: null,
@@ -49,12 +53,14 @@ THE SOFTWARE.
             }
         }
     };
+    var replaceOptions = {grid:{show:false} };
     function init(plot) {
         var  opt = null,offset = null,series = null,dataHeight = null, dataMax,centerX,canvasHeight,canvasWidth;
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
             if (options.series.pyramid.active===true){	
-                options.grid.show = false;
+                $.extend(true,options,replaceOptions);
+                $.plot.JUMlib.data.extendEmpty(options,defaultOptions);
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawSeries.push(drawSeries);

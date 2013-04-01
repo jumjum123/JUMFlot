@@ -32,7 +32,7 @@ THE SOFTWARE.
     var options ={
         series:{
             heatmap:{
-                active: true,
+                active: false,
                 show: false,
                 backImage: null,
                 radiusIn : 10,
@@ -63,8 +63,8 @@ THE SOFTWARE.
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
             if(options.series.heatmap.active){
-                $.plot.JUMlib.data.extendEmpty(options,defaultOptions);                
-                opt = plot.getOptions();
+                $.plot.JUMlib.data.extendEmpty(options,defaultOptions);               
+                opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawBackground.push(drawBackground);
                 plot.hooks.drawSeries.push(drawSeries);
@@ -79,7 +79,9 @@ THE SOFTWARE.
             var ctx = canvas.getContext("2d"),
                 grad = ctx.createLinearGradient(0,0,1,256),
                 gradient = opt.series.heatmap.gradient;
-            for(var x in gradient){ grad.addColorStop(x, gradient[x]);}          
+            for(var x in gradient){
+                grad.addColorStop(x, gradient[x]);
+            }          
             ctx.fillStyle = grad;
             ctx.fillRect(0,0,1,256);
             opt.series.heatmap.gradient = ctx.getImageData(0,0,1,256).data;          
@@ -87,6 +89,7 @@ THE SOFTWARE.
         }    
         function processRawData(plot,s,data,datapoints){
             if(s.heatmap.show === true){
+console.log("pRD",s.nearBy.findItem,s.nearBy.distance,s.nearBy.drawEdit);
                 s.nearBy.findItemDefault = s.nearBy.findItem;
                 s.nearBy.findItem = findNearbyItemHeatmap;
                 var img = new Image();
