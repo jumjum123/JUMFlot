@@ -20,12 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
-/* this plugin is strongly based on the source in heatmap.js from Patrick Wied
- * Patrick created a great tool, which does much more than this plugin
- * Give him a try and visite his homepage http://www.patrick-wied.at
- * or got directly to http://www.patrick-wied.at/static/heatmapjs/
- */
-
 (function ($){
     "use strict";
     var pluginName = "background", pluginVersion = "0.4";

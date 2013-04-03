@@ -1,7 +1,7 @@
 /*
  * The MIT License
 
-Copyright (c) 2012 by Juergen Marsch
+Copyright (c) 2012, 2013 by Juergen Marsch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
-
 (function ($) {
     "use strict";
     var options = { 
@@ -44,7 +43,7 @@ THE SOFTWARE.
     function init(plot) {
         var opt = null, evtHolder = null, plotOffset = null, placeHolder = null;
         plot.hooks.bindEvents.push(bindEvents);        
-        function bindEvents(plot, eventHolder) {
+        function bindEvents(plot, eventHolder) { 
             opt = plot.getOptions();
             evtHolder = eventHolder;
             plotOffset = plot.getPlotOffset();
