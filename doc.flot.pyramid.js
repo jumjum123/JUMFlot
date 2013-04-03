@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-var pyramid_docu = {
+$.plot.JUMExample.docu.pyramid = {
 "docu":"Documentation","pyramid":{
 "docu":"Plugin to create pyramid charts","data":{
 "docu":"Data Array specific for pyramid chart","0":{

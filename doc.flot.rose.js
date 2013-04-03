@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-var rose_docu = {
+$.plot.JUMExample.docu.rose = {
 "docu":"Documentation","rose":{
 "docu":"Plugin to show a rose chart","data":{
 "docu":"Data Array specific for Rose chart","0":{

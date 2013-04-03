@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-var grow_docu = {
+$.plot.JUMExample.docu.grow = {
 "docu":"Documentation","grow":{
 "docu":"Plugin to support animation of charts","data":{
 "docu":"Data Array specific for Bandwidth chart","0":{

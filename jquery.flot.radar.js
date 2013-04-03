@@ -57,13 +57,13 @@ THE SOFTWARE.
         }
         function createDocuTemplate(){
             var z,frm;
-            z = $.plot.JUMlib.docu.docuObjectToTemplate(
+            z = $.plot.JUMExample.docuObjectToTemplate(
                 [ {name:"data",tree:series.data},
                 {name:"options.series.radar",tree:options.series.radar,takeDefault:true},
                 {name:"options.series.radar",tree:opt.series.radar}
                 ],pluginName); 
-            $.plot.JUMlib.docu.extendDocuObject(z,radar_docu,pluginName);
-            frm = $.plot.JUMlib.docu.docuObjectToEdit(z,"");
+            $.plot.JUMExample.extendDocuObject(z,pluginName);
+            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
             return { data:z, form:frm};
         }    
         function processRawData(plot,s,data,datapoints){

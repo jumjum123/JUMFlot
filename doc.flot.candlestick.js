@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-var candlestick_docu = {
+$.plot.JUMExample.docu.candlestick = {
 "docu":"Documentation","candlestick":{
 "docu":"Plugin to show a candlestick chart","data":{
 "docu":"Data Array specific for Bandwidth chart","0":{

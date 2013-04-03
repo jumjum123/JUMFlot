@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-var heatmap_docu = {
+$.plot.JUMExample.docu.heatmap = {
 "docu":"Documentation","heatmap":{
 }
 }

@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-var gantt_docu = {
+$.plot.JUMExample.docu.gantt = {
 "docu":"Documentation","gantt":{
 "docu":"<strong>Plugin to create gantt charts</strong>","data":{
 "docu":"Data Array specific for gantt chart","0":{

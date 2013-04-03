@@ -97,7 +97,7 @@ THE SOFTWARE.
         }
         function createDocuTemplate(){
             var z,frm;
-            z = $.plot.JUMlib.docu.docuObjectToTemplate(
+            z = $.plot.JUMExample.docuObjectToTemplate(
                 [ {name:"data",tree:series.data},
                 {name:"options.series.heatmap",tree:options.series.heatmap,takeDefault:true},
                 {name:"options.series.heatmap",tree:opt.series.heatmap},
@@ -106,8 +106,8 @@ THE SOFTWARE.
                 {name:"options.series.nearBy",tree:options.series.nearBy,takeDefault:true},
                 {name:"options.series.nearBy",tree:opt.series.nearBy}
                 ],pluginName); 
-            $.plot.JUMlib.docu.extendDocuObject(z,heatmap_docu,pluginName);
-            frm = $.plot.JUMlib.docu.docuObjectToEdit(z,"");
+            $.plot.JUMExample.extendDocuObject(z,pluginName);
+            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
             return { data:z, form:frm};
         }
         function drawBackground(plot,ctx){            

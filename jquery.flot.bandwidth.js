@@ -80,7 +80,7 @@ THE SOFTWARE.
         }
         function createDocuTemplate(){
             var z,frm;
-            z = $.plot.JUMlib.docu.docuObjectToTemplate(
+            z = $.plot.JUMExample.docuObjectToTemplate(
                 [ {name:"data",tree:series.data},
                 {name:"options.series.bandwidth",tree:options.series.bandwidth,takeDefault:true},
                 {name:"options.series.bandwidth",tree:opt.series.bandwidth},
@@ -89,8 +89,8 @@ THE SOFTWARE.
                 {name:"options.series.nearBy",tree:options.series.nearBy,takeDefault:true},
                 {name:"options.series.nearBy",tree:opt.series.nearBy}
                 ],pluginName); 
-            $.plot.JUMlib.docu.extendDocuObject(z,bandwidth_docu,pluginName);
-            frm = $.plot.JUMlib.docu.docuObjectToEdit(z,"");
+            $.plot.JUMExample.extendDocuObject(z,pluginName);
+            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
             return { data:z, form:frm};
         }
         function drawSeries(plot, ctx, serie){

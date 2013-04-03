@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-var spiral_docu = {
+$.plot.JUMExample.docu.spiral = {
 "docu":"Documentation","spiral":{
 "docu":"Plugin to create rectangle charts","data":{
 "docu":"Data Array specific for spiral chart","0":{

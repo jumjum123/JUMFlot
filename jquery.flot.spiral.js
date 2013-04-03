@@ -67,13 +67,13 @@ THE SOFTWARE.
         }
         function createDocuTemplate(){
             var z,frm;
-            z = $.plot.JUMlib.docu.docuObjectToTemplate(
+            z = $.plot.JUMExample.docuObjectToTemplate(
                 [ {name:"data",tree:series.data},
                 {name:"options.series.spiral",tree:options.series.spiral,takeDefault:true},
                 {name:"options.series.spiral",tree:opt.series.spiral}
                 ],pluginName); 
-            $.plot.JUMlib.docu.extendDocuObject(z,spiral_docu,pluginName);
-            frm = $.plot.JUMlib.docu.docuObjectToEdit(z,"");
+            $.plot.JUMExample.extendDocuObject(z,pluginName);
+            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
             return { data:z, form:frm};
         }
         function drawSeries(plot, ctx, serie){

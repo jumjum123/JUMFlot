@@ -82,15 +82,15 @@ THE SOFTWARE.
         }
         function createDocuTemplate(){
             var z,frm;
-            z = $.plot.JUMlib.docu.docuObjectToTemplate(
+            z = $.plot.JUMExample.docuObjectToTemplate(
                 [ {name:"data",tree:series.data},
                 {name:"options.series.gantt",tree:options.series.gantt,takeDefault:true},
                 {name:"options.series.gantt",tree:opt.series.gantt},
                 {name:"options.series.editMode",tree:opt.series.editMode},
                 {name:"options.series.nearBy",tree:opt.series.nearBy}
                 ],pluginName); 
-            $.plot.JUMlib.docu.extendDocuObject(z,gantt_docu,pluginName);
-            frm = $.plot.JUMlib.docu.docuObjectToEdit(z,"");
+            $.plot.JUMExample.extendDocuObject(z,pluginName);
+            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
             return { data:z, form:frm};
         }
         function processRawData(plot,s,data,datapoints){

@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-var bubbles_docu = {
+$.plot.JUMExample.docu.bubbles = {
 "docu":"","bubbles":{
 "docu":"<strong>Plugin to create bubble charts</strong>","data":{
 "docu":"Data Array specific for Bubbles chart","0":{

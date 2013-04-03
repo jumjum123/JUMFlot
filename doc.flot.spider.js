@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-var spider_docu = {
+$.plot.JUMExample.docu.spider = {
 "docu":"","spider":{
 "docu":"<strong>Plugin to create spider chart</strong>","data":{
 "docu":"Data Array specific for Spider chart","0":{

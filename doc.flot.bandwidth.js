@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-var bandwidth_docu = {
+$.plot.JUMExample.docu.bandwidth = {
 "docu":"","defVal":"","bandwidth":{
 "docu":"<strong>Plugin to create bandwidth charts</strong>","defVal":"none","data":{
 "docu":"Data Array specific for Bandwidth chart","defVal":"none","0":{

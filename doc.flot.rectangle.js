@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-var rectangle_docu = {
+$.plot.JUMExample.docu.rectangle = {
 "docu":"Documentation","rectangle":{
 "docu":"Plugin to create rectangle charts","data":{
 "docu":"Data Array specific for rectangle chart","0":{
