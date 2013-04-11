@@ -97,8 +97,8 @@ THE SOFTWARE.
                     opt.series.grow.steps = Math.max(opt.series.grow.steps, d[j].grow.steps);
                 }
                 if (opt.series.grow.stepDelay === 0) { opt.series.grow.stepDelay++; }
-                growfunc = window.setTimeout(growingLoop, opt.series.grow.stepDelay);
-
+                
+                growingLoop();
                 if (isPluginRegistered("resize")) {
                     plot.getPlaceholder().bind("resize", onResize);
                 }
@@ -174,18 +174,16 @@ THE SOFTWARE.
         }
 
         function clone(obj) {
-            if(obj === null || typeof(obj) !== 'object'){ return obj;}
+            if (obj === null || typeof (obj) !== 'object') { return obj; }
             var temp = new obj.constructor();
-            for(var key in obj){temp[key] = clone(obj[key]); }
+            for (var key in obj) { temp[key] = clone(obj[key]); }
             return temp;
         }
 
         function onResize() {
             if (growfunc) {
-                clearTimeout(growfunc);
+                window.clearTimeout(growfunc);
                 growfunc = null;
-                plot.setupGrid();
-                plot.draw();
             }
         }
 
