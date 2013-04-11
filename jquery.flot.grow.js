@@ -104,7 +104,6 @@ THE SOFTWARE.
                 }
             }
         }
-
         function growingLoop() {
             var startTime = new Date();
             var growing;
@@ -130,7 +129,8 @@ THE SOFTWARE.
                 var timeDiff = new Date() - startTime;
                 var nextStepDelay = Math.max(0, opt.series.grow.stepDelay - timeDiff);
                 growfunc = window.setTimeout(growingLoop, nextStepDelay);
-            } else {
+            }
+            else {
                 growfunc = null;
             }
             function growNone() {
@@ -172,25 +172,21 @@ THE SOFTWARE.
                 }
             }
         }
-
         function clone(obj) {
             if (obj === null || typeof (obj) !== 'object') { return obj; }
             var temp = new obj.constructor();
             for (var key in obj) { temp[key] = clone(obj[key]); }
             return temp;
         }
-
         function onResize() {
             if (growfunc) {
                 window.clearTimeout(growfunc);
                 growfunc = null;
             }
         }
-
         function shutdown(plot, eventHolder) {
             plot.getPlaceholder().unbind("resize", onResize);
         }
-
         function isPluginRegistered(pluginName) {
             var plugins = $.plot.plugins;
 
