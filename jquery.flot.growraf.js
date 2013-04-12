@@ -1,7 +1,8 @@
 /*
- * The MIT License
+* The MIT License
 
 Copyright (c) 2010,2011,2012, 2013 by Juergen Marsch
+Copyright (c) 2013 by Thodoris Greasidis
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,13 +25,14 @@ THE SOFTWARE.
 
 (function ($) {
     "use strict";
-    var pluginName = "grow", pluginVersion = "0.4";
+    var pluginName = "growraf", pluginVersion = "0.4";
     var options = {
         series: {
             grow: {
                 active: false,
-                stepDelay: 20,
-                steps: 100,
+                //stepDelay: 20,
+                //steps: 100,
+                duration: 1000,
                 growings: [
                     {
                         valueIndex: 1,
@@ -42,6 +44,10 @@ THE SOFTWARE.
             }
         }
     };
+    var requestAnimationFrame;
+    var cancelAnimationFrame;
+    polyfillLocalRequestAnimationFrame();
+
     function init(plot) {
         var done = false;
         var growfunc;
@@ -78,7 +84,9 @@ THE SOFTWARE.
                 }
                 if (done === false) {
                     data = plot.getData();
-                    data.actualStep = 0;
+                    //data.actualStep = 0;
+                    data.timePassed = 0;
+                    data.startTime = +new Date();
                     data.growingIndex = 0;
                     for (var j = 0; j < data.length; j++) {
                         data[j].dataOrg = clone(data[j].data);
@@ -94,26 +102,27 @@ THE SOFTWARE.
             if (opt.series.grow.active === true) {
                 var d = plot.getData();
                 for (var j = 0; j < data.length; j++) {
-                    opt.series.grow.steps = Math.max(opt.series.grow.steps, d[j].grow.steps);
+                    //opt.series.grow.steps = Math.max(opt.series.grow.steps, d[j].grow.steps);
+                    opt.series.grow.duration = Math.max(opt.series.grow.duration, d[j].grow.duration);
                 }
-                if (opt.series.grow.stepDelay === 0) { opt.series.grow.stepDelay++; }
-                
-                growingLoop();
+                //if (opt.series.grow.stepDelay === 0) { opt.series.grow.stepDelay++; }
+
+                d.startTime = +new Date();
+                growfunc = requestAnimationFrame(growingLoop);
                 if (isPluginRegistered("resize")) {
                     plot.getPlaceholder().bind("resize", onResize);
                 }
             }
         }
         function growingLoop() {
-            var startTime = new Date();
             var growing;
-            if (data.actualStep < opt.series.grow.steps) {
-                data.actualStep++;
+            data.timePassed = (+new Date()) - data.startTime;
+            if (data.timePassed < opt.series.grow.duration) {
                 for (var j = 0; j < data.length; j++) {
                     for (var g = 0; g < data[j].grow.growings.length; g++) {
                         growing = data[j].grow.growings[g];
                         if (typeof growing.stepMode === "function") {
-                            growing.stepMode(data[j], data.actualStep, growing);
+                            growing.stepMode(data[j], data.timePassed, growing);
                         }
                         else {
                             if (growing.stepMode === "linear") { growLinear(); }
@@ -126,46 +135,47 @@ THE SOFTWARE.
                 plt.setData(data);
                 plt.draw();
 
-                var timeDiff = new Date() - startTime;
-                var nextStepDelay = Math.max(0, opt.series.grow.stepDelay - timeDiff);
-                growfunc = window.setTimeout(growingLoop, nextStepDelay);
+                growfunc = requestAnimationFrame(growingLoop);
             }
             else {
                 growfunc = null;
             }
             function growNone() {
-                if (data.actualStep === 1) {
+                if (data.timePassed === 0) {
                     for (var i = 0; i < data[j].data.length; i++) {
                         data[j].data[i][valueIndex] = data[j].dataOrg[i][growing.valueIndex];
                     }
                 }
             }
             function growLinear() {
-                if (data.actualStep <= data[j].grow.steps) {
+                var timePassed = Math.min(data.timePassed, data[j].grow.duration);
+                if (timePassed <= data[j].grow.duration) {
                     for (var i = 0; i < data[j].data.length; i++) {
                         if (growing.stepDirection === "up") {
-                            data[j].data[i][growing.valueIndex] = data[j].dataOrg[i][growing.valueIndex] / data[j].grow.steps * data.actualStep;
+                            data[j].data[i][growing.valueIndex] = data[j].dataOrg[i][growing.valueIndex] / data[j].grow.duration * timePassed;
                         }
                         else if (growing.stepDirection === "down") {
-                            data[j].data[i][growing.valueIndex] = data[j].dataOrg[i][growing.valueIndex] + (data[j].yaxis.max - data[j].dataOrg[i][growing.valueIndex]) / data[j].grow.steps * (data[j].grow.steps - data.actualStep);
+                            data[j].data[i][growing.valueIndex] = data[j].dataOrg[i][growing.valueIndex] + (data[j].yaxis.max - data[j].dataOrg[i][growing.valueIndex]) / data[j].grow.duration * (data[j].grow.duration - timePassed);
                         }
                     }
                 }
             }
             function growMaximum() {
-                if (data.actualStep <= data[j].grow.steps) {
+                var timePassed = Math.min(data.timePassed, data[j].grow.duration);
+                if (timePassed <= data[j].grow.duration) {
                     for (var i = 0; i < data[j].data.length; i++) {
                         if (growing.stepDirection === "up") {
-                            data[j].data[i][growing.valueIndex] = Math.min(data[j].dataOrg[i][growing.valueIndex], data[j].yaxis.max / data[j].grow.steps * data.actualStep);
+                            data[j].data[i][growing.valueIndex] = Math.min(data[j].dataOrg[i][growing.valueIndex], data[j].yaxis.max / data[j].grow.duration * timePassed);
                         }
                         else if (growing.stepDirection === "down") {
-                            data[j].data[i][growing.valueIndex] = Math.max(data[j].dataOrg[i][growing.valueIndex], data[j].yaxis.max / data[j].grow.steps * (data[j].grow.steps - data.actualStep));
+                            data[j].data[i][growing.valueIndex] = Math.max(data[j].dataOrg[i][growing.valueIndex], data[j].yaxis.max / data[j].grow.duration * (data[j].grow.duration - timePassed));
                         }
                     }
                 }
             }
             function growDelay() {
-                if (data.actualStep == data[j].grow.steps) {
+                var timePassed = Math.min(data.timePassed, data[j].grow.duration);
+                if (timePassed >= data[j].grow.duration) {
                     for (var i = 0; i < data[j].data.length; i++) {
                         data[j].data[i][growing.valueIndex] = data[j].dataOrg[i][growing.valueIndex];
                     }
@@ -180,7 +190,7 @@ THE SOFTWARE.
         }
         function onResize() {
             if (growfunc) {
-                window.clearTimeout(growfunc);
+                cancelAnimationFrame(growfunc);
                 growfunc = null;
             }
         }
@@ -199,6 +209,41 @@ THE SOFTWARE.
             }
             return false;
         }
+    }
+    // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+    // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+    // requestAnimationFrame polyfill by Erik Möller
+    // fixes from Paul Irish and Tino Zijdel
+    function polyfillLocalRequestAnimationFrame() {
+        var rAF = window.requestAnimationFrame;
+        var cAF = window.cancelAnimationFrame;
+
+        var lastTime = +new Date();
+        var vendors = ['ms', 'moz', 'webkit', 'o'];
+        for(var x = 0; x < vendors.length && !rAF; ++x) {
+            rAF = window[vendors[x]+'RequestAnimationFrame'];
+
+            cAF = window[vendors[x]+'CancelAnimationFrame'] ||
+                  window[vendors[x]+'CancelRequestAnimationFrame'];
+        }
+        if (!rAF) {
+            rAF = function(callback, element) {
+                var currTime = +new Date();
+                var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+                var id = window.setTimeout(function() {
+                    callback(currTime + timeToCall);
+                }, timeToCall);
+                lastTime = currTime + timeToCall;
+                return id;
+            };
+        }
+        if (!cAF) {
+            cAF = function(id) {
+                clearTimeout(id);
+            };
+        }
+        requestAnimationFrame = rAF;
+        cancelAnimationFrame = cAF;
     }
     $.plot.plugins.push({
         init: init,
