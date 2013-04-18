@@ -392,14 +392,14 @@ THE SOFTWARE.
             $('<img />').attr('src',url).load(loaded).error(errorFound);
             return dfd.promise();
             function loaded(){ loadedImg[img.name] = this;dfd.resolve();}
-            function errorFound(e,f,g){loadedImg[img.name] = null;dfd.reject();}    
+            function errorFound(e,f,g){console.log(url,e); loadedImg[img.name] = null;dfd.reject();}    
         }
     } 
     function getCanvases(placeholder){
         var canvases = {
-            background:$("#placeholder").children(".flot-background"),
-            base:$("#placeholder").children(".flot-base"),
-            overlay:$("#placeholder").children(".flot-overlay")
+            background:$(placeholder).children(".flot-background"),
+            base:$(placeholder).children(".flot-base"),
+            overlay:$(placeholder).children(".flot-overlay")
         };
         return canvases;
     }
