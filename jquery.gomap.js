@@ -1,4 +1,4 @@
-﻿/**
+/**
  * jQuery goMap
  *
  * @url		http://www.pittss.lv/jquery/gomap/
@@ -7,4 +7,864 @@
  * This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
  */
 
-eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('(c($){b 3i=x h.g.3K();c 1r(t){3.14(t)};1r.1R=x h.g.4d();1r.1R.4b=c(){};1r.1R.4a=c(){};1r.1R.47=c(){};$.p={};$.46.p=c(5){s 3.45(c(){b p=$(3).m(\'p\');7(!p){b 1q=$.1v(B,{},$.1q);$(3).m(\'p\',1q.2N(3,5));$.p=1q}n{$.p=p}})};$.1q={2K:{C:\'\',G:44.9,F:24.1,2s:4,1E:42,2V:B,2X:B,32:\'41\',3g:\'40\',2F:\'3Z\',2h:B,11:{z:\'3Y\',N:\'2W\'},2e:B,10:{z:\'3X\',N:\'2W\'},2d:v,2a:B,3V:v,3T:H,28:v,25:v,e:[],D:[],1g:{P:\'#1f\',O:1.0,L:2},19:{P:\'#1f\',O:1.0,L:2,S:\'#1f\',R:0.2},W:{P:\'#1f\',O:1.0,L:2,S:\'#1f\',R:0.2},1Q:{P:\'#1f\',O:1.0,L:2,S:\'#1f\',R:0.2},2O:\'3S\',2U:\'<1k 3P=3N>\',2Y:\'</1k>\',1s:v},t:H,1w:0,e:[],35:[],37:[],3d:[],3f:[],1x:[],1z:[],1h:v,1b:H,D:H,w:H,o:H,2n:H,2g:H,27:H,22:H,8:H,1K:H,2N:c(29,5){b 8=$.1v(B,{},$.1q.2K,5);3.o=$(29);3.8=8;7(8.C)3.12({C:8.C,1d:B});n 7($.2Z(8.e)&&8.e.u>0){7(8.e[0].C)3.12({C:8.e[0].C,1d:B});n 3.1K=x h.g.V(8.e[0].G,8.e[0].F)}n 3.1K=x h.g.V(8.G,8.F);b 34={1d:3.1K,28:8.28,2e:8.2e,25:8.25,10:{z:h.g.1J[8.10.z.18()],N:h.g.38[8.10.N.18()]},3a:h.g.3J[8.2O.18()],2h:8.2h,11:{z:h.g.1J[8.11.z.18()],N:h.g.3c[8.11.N.18()]},2d:8.2d,2a:8.2a,2s:8.2s};3.t=x h.g.3I(29,34);3.w=x 1r(3.t);3.D={1g:{q:\'2n\',y:\'35\',1y:\'3j\'},19:{q:\'2g\',y:\'37\',1y:\'2B\'},W:{q:\'27\',y:\'3d\',1y:\'2D\'},1Q:{q:\'22\',y:\'3f\',1y:\'2E\'}};3.2n=$(\'<1k N="Q:1T;"/>\').1I(3.o);3.2g=$(\'<1k N="Q:1T;"/>\').1I(3.o);3.27=$(\'<1k N="Q:1T;"/>\').1I(3.o);3.22=$(\'<1k N="Q:1T;"/>\').1I(3.o);I(b j=0,l=8.e.u;j<l;j++)3.1F(8.e[j]);I(b j=0,l=8.D.u;j<l;j++)3[3.D[8.D[j].d].1y](8.D[j]);b p=3;7(8.1s==B||8.1s==\'3F\'){h.g.K.1o(p.t,\'21\',c(K){b 5={z:K.2L,1G:B};b 6=p.1F(5);h.g.K.1o(6,\'30\',c(K){6.14(H);p.2f(6.q)})})}n 7(8.1s==\'3E\'){h.g.K.1o(p.t,\'21\',c(K){7(!p.1L){b 5={z:K.2L,1G:B};b 6=p.1F(5);p.1L=B;h.g.K.1o(6,\'30\',c(K){6.14(H);p.2f(6.q);p.1L=v})}})}J 8.e;J 8.D;s 3},3B:c(f){h.g.K.3A(3.t,\'3z\',c(){s f()})},12:c(C,5){b p=3;1M(c(){3i.12({\'C\':C.C},c(1N,1u){7(1u==h.g.1O.2l&&C.1d)p.t.3y(1N[0].2r.2x);7(1u==h.g.1O.2l&&5&&5.E)5.E.3w(1N[0].2r.2x);n 7(1u==h.g.1O.2l&&5){7(p.1h){p.1h=v;5.z=1N[0].2r.2x;5.12=B;p.1F(5)}}n 7(1u==h.g.1O.3t){p.12(C,5)}})},3.8.1E)},23:c(){7(3.1z.u>0&&!3.1h){3.1h=B;b 17=3.1z.1H(0,1);3.12({C:17[0].C},17[0])}n 7(3.1h){b p=3;1M(c(){p.23()},3.8.1E)}},14:c(5){J 5.3a;7(5.C){3.12({C:5.C,1d:B});J 5.C}n 7(5.G&&5.F){5.1d=x h.g.V(5.G,5.F);J 5.F;J 5.G}7(5.10&&5.10.z)5.10.z=h.g.1J[5.10.z.18()];7(5.10&&5.10.N)5.10.N=h.g.38[5.10.N.18()];7(5.11&&5.11.z)5.11.z=h.g.1J[5.11.z.18()];7(5.11&&5.11.N)5.11.N=h.g.3c[5.11.N.18()];3.t.1S(5)},2I:c(){s 3.t},2J:c(d,K,m){b 1l;7(1B d!=\'2M\')d={d:d};7(d.d==\'t\')1l=3.t;n 7(d.d==\'6\'&&d.6)1l=$(3.o).m(d.6);n 7(d.d==\'k\'&&d.6)1l=$(3.o).m(d.6+\'k\');7(1l)s h.g.K.1o(1l,K,m);n 7((d.d==\'6\'||d.d==\'k\')&&3.2b()!=3.2c())b p=3;1M(c(){p.2J(d,K,m)},3.8.1E)},2Q:c(2R){h.g.K.2Q(2R)},2S:c(6,A){b p=3;A.1n=p.8.2U+A.1n+p.8.2Y;b M=x h.g.3s(A);M.X=v;$(p.o).m(6.q+\'k\',M);7(A.3r){p.2j(M,6,A);M.X=B}h.g.K.1o(6,\'21\',c(){7(M.X&&p.8.2V){M.1p();M.X=v}n{p.2j(M,6,A);M.X=B}})},2j:c(M,6,A){7(3.8.2X)3.31();7(A.1X){M.2m(3.t,6);$.1X({3q:A.1X,3p:c(A){M.2p(A)}})}n 7(A.q){M.2p($(A.q).A());M.2m(3.t,6)}n M.2m(3.t,6)},3n:c(q,1Z){b k=$(3.o).m(q+\'k\');7(1B 1Z==\'2M\')k.1S(1Z);n k.2p(1Z)},3m:c(q,39){b k=$(3.o).m(q+\'k\').3O();7(39)s $(k).A();n s k},31:c(){I(b i=0,l=3.e.u;i<l;i++){b k=$(3.o).m(3.e[i]+\'k\');7(k){k.1p();k.X=v}}},2v:c(d,e){b p=3;7(3.2b()!=3.2c())1M(c(){p.2v(d,e)},3.8.1E);n{3.1b=x h.g.2w();7(!d||(d&&d==\'3l\')){I(b i=0,l=3.e.u;i<l;i++){3.1b.1v($(3.o).m(3.e[i]).z)}}n 7(d&&d==\'1A\'){I(b i=0,l=3.e.u;i<l;i++){7(3.1D(3.e[i]))3.1b.1v($(3.o).m(3.e[i]).z)}}n 7(d&&d==\'e\'&&$.2Z(e)){I(b i=0,l=e.u;i<l;i++){3.1b.1v($(3.o).m(e[i]).z)}}3.t.2v(3.1b)}},2z:c(){s 3.t.2z()},3j:c(a){a.d=\'1g\';s 3.1C(a)},2B:c(a){a.d=\'19\';s 3.1C(a)},2D:c(a){a.d=\'W\';s 3.1C(a)},2E:c(a){a.d=\'1Q\';s 3.1C(a)},1C:c(a){b w=[];7(!a.q){3.1w++;a.q=3.8.3g+3.1w}3e(a.d){16\'1g\':7(a.T.u>0){I(b j=0,l=a.T.u;j<l;j++)w.U(x h.g.V(a.T[j].G,a.T[j].F));w=x h.g.3o({t:3.t,2o:w,1Y:a.P?a.P:3.8.1g.P,1W:a.O?a.O:3.8.1g.O,1V:a.L?a.L:3.8.1g.L})}n s v;Y;16\'19\':7(a.T.u>0){I(b j=0,l=a.T.u;j<l;j++)w.U(x h.g.V(a.T[j].G,a.T[j].F));w=x h.g.3u({t:3.t,2o:w,1Y:a.P?a.P:3.8.19.P,1W:a.O?a.O:3.8.19.O,1V:a.L?a.L:3.8.19.L,S:a.S?a.S:3.8.19.S,R:a.R?a.R:3.8.19.R})}n s v;Y;16\'W\':w=x h.g.3v({t:3.t,1d:x h.g.V(a.G,a.F),2C:a.2C,1Y:a.P?a.P:3.8.W.P,1W:a.O?a.O:3.8.W.O,1V:a.L?a.L:3.8.W.L,S:a.S?a.S:3.8.W.S,R:a.R?a.R:3.8.W.R});Y;16\'1Q\':w=x h.g.3x({t:3.t,1b:x h.g.2w(x h.g.V(a.1t.G,a.1t.F),x h.g.V(a.1j.G,a.1j.F)),1Y:a.P?a.P:3.8.W.P,1W:a.O?a.O:3.8.W.O,1V:a.L?a.L:3.8.W.L,S:a.S?a.S:3.8.W.S,R:a.R?a.R:3.8.W.R});Y;26:s v;Y}3.36(a,w);s w},36:c(a,w){$(3[3.D[a.d].q]).m(a.q,w);3[3.D[a.d].y].U(a.q)},3C:c(d,w,5){w=$(3[3.D[d].q]).m(w);7(5.T&&5.T.u>0){b y=[];I(b j=0,l=5.T.u;j<l;j++)y.U(x h.g.V(5.T[j].G,5.T[j].F));5.2o=y;J 5.T}n 7(5.1j&&5.1t){5.1b=x h.g.2w(x h.g.V(5.1t.G,5.1t.F),x h.g.V(5.1j.G,5.1j.F));J 5.1j;J 5.1t}n 7(5.G&&5.F){5.1d=x h.g.V(5.G,5.F);J 5.G;J 5.F}w.1S(5)},3D:c(d,w,Q){7(1B Q===\'2i\'){7(3.2T(d,w))Q=v;n Q=B}7(Q)$(3[3.D[d].q]).m(w).14(3.t);n $(3[3.D[d].q]).m(w).14(H)},2T:c(d,w){7($(3[3.D[d].q]).m(w).2I())s B;n s v},3G:c(d){s 3[3.D[d].y].u},3H:c(d,w){b 1i=$.3b(w,3[3.D[d].y]),17;7(1i>-1){17=3[3.D[d].y].1H(1i,1);b E=17[0];$(3[3.D[d].q]).m(E).14(H);$(3[3.D[d].q]).1m(E);s B}s v},3L:c(d){I(b i=0,l=3[3.D[d].y].u;i<l;i++){b E=3[3.D[d].y][i];$(3[3.D[d].q]).m(E).14(H);$(3[3.D[d].q]).1m(E)}3[3.D[d].y]=[]},3M:c(6,Q){7(1B Q===\'2i\'){7(3.1D(6)){$(3.o).m(6).1c(v);b k=$(3.o).m(6+\'k\');7(k&&k.X){k.1p();k.X=v}}n $(3.o).m(6).1c(B)}n $(3.o).m(6).1c(Q)},3k:c(13,Q){I(b i=0,l=3.e.u;i<l;i++){b E=3.e[i];b 6=$(3.o).m(E);7(6.13==13){7(1B Q===\'2i\'){7(3.1D(E)){6.1c(v);b k=$(3.o).m(E+\'k\');7(k&&k.X){k.1p();k.X=v}}n 6.1c(B)}n 6.1c(Q)}}},1D:c(6){s $(3.o).m(6).3Q()},2b:c(){s 3.e.u},2c:c(){s 3.1x.u},3R:c(){s 3.1P(\'2H\').u},3U:c(13){s 3.1P(\'13\',13).u},1P:c(d,2A){b y=[];3e(d){16"3W":I(b i=0,l=3.e.u;i<l;i++){b 1a="\'"+i+"\': \'"+$(3.o).m(3.e[i]).1U().2k()+"\'";y.U(1a)}y="{\'e\':{"+y.3h(",")+"}}";Y;16"m":I(b i=0,l=3.e.u;i<l;i++){b 1a="6["+i+"]="+$(3.o).m(3.e[i]).1U().2k();y.U(1a)}y=y.3h("&");Y;16"33":I(b i=0,l=3.e.u;i<l;i++){7(3.2P($(3.o).m(3.e[i]).1U()))y.U(3.e[i])}Y;16"2H":I(b i=0,l=3.e.u;i<l;i++){7(3.1D(3.e[i]))y.U(3.e[i])}Y;16"13":7(2A)I(b i=0,l=3.e.u;i<l;i++){7($(3.o).m(3.e[i]).13==2A)y.U(3.e[i])}Y;16"e":I(b i=0,l=3.e.u;i<l;i++){b 1a=$(3.o).m(3.e[i]);y.U(1a)}Y;26:I(b i=0,l=3.e.u;i<l;i++){b 1a=$(3.o).m(3.e[i]).1U().2k();y.U(1a)}Y}s y},43:c(){s 3.1P(\'33\')},1F:c(6){7(!6.12){3.1w++;7(!6.q)6.q=3.8.32+3.1w;3.1x.U(6.q)}7(6.C&&!6.12){3.1z.U(6);3.23()}n 7(6.G&&6.F||6.z){b 5={t:3.t};5.q=6.q;5.13=6.13?6.13:3.8.2F;5.2q=6.2q?6.2q:0;5.2t=6.2t?6.2t:0;7(6.1A==v)5.1A=6.1A;7(6.2u)5.2u=6.2u;7(6.1G)5.1G=6.1G;7(6.r&&6.r.1e){5.r=6.r.1e;7(6.r.Z)5.Z=6.r.Z}n 7(6.r)5.r=6.r;n 7(3.8.r&&3.8.r.1e){5.r=3.8.r.1e;7(3.8.r.Z)5.Z=3.8.r.Z}n 7(3.8.r)5.r=3.8.r;5.z=6.z?6.z:x h.g.V(6.G,6.F);b 20=x h.g.48(5);7(6.A){7(!6.A.1n&&!6.A.1X&&!6.A.q)6.A={1n:6.A};n 7(!6.A.1n)6.A.1n=H;3.2S(20,6.A)}3.1s(20);s 20}},1s:c(6){$(3.o).m(6.q,6);3.e.U(6.q)},49:c(6,5){b 2y=$(3.o).m(6);J 5.q;J 5.1A;7(5.r){b 15=5.r;J 5.r;7(15&&15==\'26\'){7(3.8.r&&3.8.r.1e){5.r=3.8.r.1e;7(3.8.r.Z)5.Z=3.8.r.Z}n 7(3.8.r)5.r=3.8.r}n 7(15&&15.1e){5.r=15.1e;7(15.Z)5.Z=15.Z}n 7(15)5.r=15}7(5.C){3.12({C:5.C},{E:2y});J 5.C;J 5.G;J 5.F;J 5.z}n 7(5.G&&5.F||5.z){7(!5.z)5.z=x h.g.V(5.G,5.F)}2y.1S(5)},2f:c(6){b 1i=$.3b(6,3.e),17;7(1i>-1){3.1x.1H(1i,1);17=3.e.1H(1i,1);b E=17[0];b 6=$(3.o).m(E);b k=$(3.o).m(E+\'k\');6.1c(v);6.14(H);$(3.o).1m(E);7(k){k.1p();k.X=v;$(3.o).1m(E+\'k\')}s B}s v},4c:c(){I(b i=0,l=3.e.u;i<l;i++){b E=3.e[i];b 6=$(3.o).m(E);b k=$(3.o).m(E+\'k\');6.1c(v);6.14(H);$(3.o).1m(E);7(k){k.1p();k.X=v;$(3.o).1m(E+\'k\')}}3.1L=v;3.1h=v;3.e=[];3.1x=[];3.1z=[]},2P:c(2G){s 3.t.2z().4e(2G)}}})(4f);',62,264,'|||this||options|marker|if|opts||poly|var|function|type|markers||maps|google|||info||data|else|mapId|goMap|id|icon|return|map|length|false|overlay|new|array|position|html|true|address|overlays|markerId|longitude|latitude|null|for|delete|event|weight|infowindow|style|opacity|color|display|fillOpacity|fillColor|coords|push|LatLng|circle|show|break|shadow|mapTypeControlOptions|navigationControlOptions|geocode|group|setMap|toption|case|current|toUpperCase|polygon|temp|bounds|setVisible|center|image|FF0000|polyline|lockGeocode|index|ne|div|target|removeData|content|addListener|close|goMapBase|MyOverlay|addMarker|sw|status|extend|count|tmpMarkers|create|geoMarkers|visible|typeof|createOverlay|getVisibleMarker|delay|createMarker|draggable|splice|appendTo|ControlPosition|centerLatLng|singleMarker|setTimeout|results|GeocoderStatus|getMarkers|rectangle|prototype|setOptions|none|getPosition|strokeWeight|strokeOpacity|ajax|strokeColor|text|cmarker|click|rId|geoMarker||streetViewControl|default|cId|disableDoubleClickZoom|el|scrollwheel|getMarkerCount|getTmpMarkerCount|scaleControl|mapTypeControl|removeMarker|pgId|navigationControl|undefined|openWindow|toUrlValue|OK|open|plId|path|setContent|zIndex|geometry|zoom|zIndexOrg|title|fitBounds|LatLngBounds|location|tmarker|getBounds|name|createPolygon|radius|createCircle|createRectangle|groupId|latlng|visiblesInMap|getMap|createListener|defaults|latLng|object|init|maptype|isVisible|removeListener|listener|setInfoWindow|getVisibleOverlay|html_prepend|hideByClick|DEFAULT|oneInfoWindow|html_append|isArray|dblclick|clearInfo|prefixId|visiblesInBounds|myOptions|polylines|addOverlay|polygons|MapTypeControlStyle|hideDiv|mapTypeId|inArray|NavigationControlStyle|circles|switch|rectangles|polyId|join|geocoder|createPolyline|showHideMarkerByGroup|all|getInfo|setInfo|Polyline|success|url|popup|InfoWindow|OVER_QUERY_LIMIT|Polygon|Circle|setPosition|Rectangle|setCenter|bounds_changed|addListenerOnce|ready|setOverlay|showHideOverlay|single|multi|getOverlaysCount|removeOverlay|Map|MapTypeId|Geocoder|clearOverlays|showHideMarker|gomapMarker|getContent|class|getVisible|getVisibleMarkerCount|HYBRID|directionsResult|getMarkerByGroupCount|directions|json|TOP_RIGHT|TOP_LEFT|gogroup|gopoly|gomarker|200|getVisibleMarkers|56|each|fn|draw|Marker|setMarker|onRemove|onAdd|clearMarkers|OverlayView|contains|jQuery'.split('|'),0,{}))
+(function($) {
+	var geocoder = new google.maps.Geocoder();
+
+	function MyOverlay(map) { this.setMap(map); };
+	MyOverlay.prototype = new google.maps.OverlayView();
+	MyOverlay.prototype.onAdd = function() { };
+	MyOverlay.prototype.onRemove = function() { };
+	MyOverlay.prototype.draw = function() { };
+
+	$.goMap = {};
+
+	$.fn.goMap = function(options) {
+		return this.each(function() {
+			var goMap = $(this).data('goMap');
+			if(!goMap) {
+				var goMapBase = $.extend(true, {}, $.goMapBase);
+				$(this).data('goMap', goMapBase.init(this, options));
+				$.goMap = goMapBase;
+			}
+			else {
+				$.goMap = goMap;
+			}
+		});
+	};
+
+	$.goMapBase = {
+		defaults: {
+			address:					'', // Street, City, Country
+			latitude:					56.9,
+			longitude:					24.1,
+			zoom:						4,
+			delay:						200,
+			hideByClick:				true,
+			oneInfoWindow:				true,
+			prefixId:					'gomarker',
+			polyId:						'gopoly',
+			groupId:					'gogroup',
+		    navigationControl:			true, // Show or hide navigation control
+			navigationControlOptions:	{
+				position:	'TOP_LEFT', // TOP, TOP_LEFT, TOP_RIGHT, BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT, LEFT, RIGHT
+				style:		'DEFAULT' 	// DEFAULT, ANDROID, SMALL, ZOOM_PAN
+			},
+		    mapTypeControl: 			true, // Show or hide map control
+			mapTypeControlOptions:		{
+				position: 	'TOP_RIGHT', // TOP, TOP_LEFT, TOP_RIGHT, BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT, LEFT, RIGHT
+				style: 		'DEFAULT'// DEFAULT, DROPDOWN_MENU, HORIZONTAL_BAR
+			},
+		    scaleControl: 				false, // Show or hide scale
+			scrollwheel:				true, // Mouse scroll whell
+		    directions: 				false,
+		    directionsResult: 			null,
+			disableDoubleClickZoom:		false,
+			streetViewControl:			false,
+			markers:					[],
+			overlays:					[],
+			polyline:					{
+				color:		'#FF0000',
+				opacity:	1.0,
+				weight:		2
+			},
+			polygon:					{
+				color:			'#FF0000',
+				opacity:		1.0,
+				weight:			2,
+				fillColor:		'#FF0000',
+				fillOpacity:	0.2
+			},
+			circle:						{
+				color:			'#FF0000',
+				opacity:		1.0,
+				weight:			2,
+				fillColor:		'#FF0000',
+				fillOpacity:	0.2
+			},
+			rectangle:					{
+				color:			'#FF0000',
+				opacity:		1.0,
+				weight:			2,
+				fillColor:		'#FF0000',
+				fillOpacity:	0.2
+			},
+			maptype:					'HYBRID', // Map type - HYBRID, ROADMAP, SATELLITE, TERRAIN
+			html_prepend:				'<div class=gomapMarker>',
+			html_append:				'</div>',
+			addMarker:					false
+		},		
+		map:			null,
+		count:			0,
+		markers:		[],
+		polylines:		[],
+		polygons:		[],
+		circles:		[],
+		rectangles:		[],
+		tmpMarkers:		[],
+		geoMarkers:		[],
+		lockGeocode:	false,
+		bounds:			null,
+		overlays:		null,
+		overlay:		null,
+		mapId:			null,
+		plId:			null,
+		pgId:			null,
+		cId:			null,
+		rId:			null,
+		opts:			null,
+		centerLatLng:	null,
+
+		init: function(el, options) {
+			var opts 	= $.extend(true, {}, $.goMapBase.defaults, options);
+			this.mapId	= $(el);
+			this.opts	= opts;
+
+			if (opts.address)
+				this.geocode({address: opts.address, center: true});
+//			else if (opts.latitude != $.goMapBase.defaults.latitude && opts.longitude != $.goMapBase.defaults.longitude)
+//				this.centerLatLng = new google.maps.LatLng(opts.latitude, opts.longitude);
+			else if ($.isArray(opts.markers) && opts.markers.length > 0) {
+				if (opts.markers[0].address)
+					this.geocode({address: opts.markers[0].address, center: true});
+				else
+					this.centerLatLng = new google.maps.LatLng(opts.markers[0].latitude, opts.markers[0].longitude);
+			}
+			else
+				this.centerLatLng = new google.maps.LatLng(opts.latitude, opts.longitude);
+
+			var myOptions = {
+				center: 				this.centerLatLng,
+				disableDoubleClickZoom:	opts.disableDoubleClickZoom,
+		        mapTypeControl:			opts.mapTypeControl,
+				streetViewControl:		opts.streetViewControl,
+				mapTypeControlOptions:  {
+					position:	google.maps.ControlPosition[opts.mapTypeControlOptions.position.toUpperCase()],
+					style:		google.maps.MapTypeControlStyle[opts.mapTypeControlOptions.style.toUpperCase()]
+				},
+				mapTypeId:				google.maps.MapTypeId[opts.maptype.toUpperCase()],
+        		navigationControl:		opts.navigationControl,
+				navigationControlOptions: {
+					position:	google.maps.ControlPosition[opts.navigationControlOptions.position.toUpperCase()],
+					style:		google.maps.NavigationControlStyle[opts.navigationControlOptions.style.toUpperCase()]
+				},
+		        scaleControl:			opts.scaleControl,
+		        scrollwheel:			opts.scrollwheel,
+				zoom:					opts.zoom
+			};
+
+			this.map 		= new google.maps.Map(el, myOptions);
+			this.overlay	= new MyOverlay(this.map);
+
+			this.overlays = { 
+				polyline:	{ id: 'plId', array: 'polylines', 	create: 'createPolyline' },
+				polygon:	{ id: 'pgId', array: 'polygons', 	create: 'createPolygon' },
+				circle:		{ id: 'cId',  array: 'circles',		create: 'createCircle' },
+				rectangle:	{ id: 'rId',  array: 'rectangles',	create: 'createRectangle' }
+			};
+
+			this.plId = $('<div style="display:none;"/>').appendTo(this.mapId);
+			this.pgId = $('<div style="display:none;"/>').appendTo(this.mapId);
+			this.cId  = $('<div style="display:none;"/>').appendTo(this.mapId);
+			this.rId  = $('<div style="display:none;"/>').appendTo(this.mapId);
+
+			for (var j = 0, l = opts.markers.length; j < l; j++)
+				this.createMarker(opts.markers[j]);
+
+			for (var j = 0, l = opts.overlays.length; j < l; j++)
+				this[this.overlays[opts.overlays[j].type].create](opts.overlays[j]);
+
+			var goMap = this;
+			if (opts.addMarker == true || opts.addMarker == 'multi') {
+				google.maps.event.addListener(goMap.map, 'click', function(event) {
+					var options = {
+						position:  event.latLng,
+						draggable: true
+					};
+
+					var marker = goMap.createMarker(options);
+
+					google.maps.event.addListener(marker, 'dblclick', function(event) {
+						marker.setMap(null);
+						goMap.removeMarker(marker.id);
+					});
+
+				});
+			}
+			else if (opts.addMarker == 'single') {
+				google.maps.event.addListener(goMap.map, 'click', function(event) {
+					if(!goMap.singleMarker) {
+						var options = {
+							position:  event.latLng,
+							draggable: true
+						};
+
+						var marker = goMap.createMarker(options);
+						goMap.singleMarker = true;
+
+						google.maps.event.addListener(marker, 'dblclick', function(event) {
+							marker.setMap(null);
+							goMap.removeMarker(marker.id);
+							goMap.singleMarker = false;
+						});
+					}
+				});
+			}
+			delete opts.markers;
+			delete opts.overlays;
+
+			return this;
+		},
+
+		ready: function(f) {
+			google.maps.event.addListenerOnce(this.map, 'bounds_changed', function() { 
+				return f();
+		    }); 
+		},
+
+		geocode: function(address, options) {
+			var goMap = this;
+			setTimeout(function() {
+				geocoder.geocode({'address': address.address}, function(results, status) {
+		        	if (status == google.maps.GeocoderStatus.OK && address.center)
+						goMap.map.setCenter(results[0].geometry.location);
+
+					if (status == google.maps.GeocoderStatus.OK && options && options.markerId)
+						options.markerId.setPosition(results[0].geometry.location);
+
+					else if (status == google.maps.GeocoderStatus.OK && options) {
+						if(goMap.lockGeocode) {
+							goMap.lockGeocode = false;
+							options.position  = results[0].geometry.location;
+							options.geocode   = true;
+							goMap.createMarker(options);
+						}
+					}
+					else if(status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+						goMap.geocode(address, options);
+					}
+   	   			});
+			}, this.opts.delay);
+		},
+
+		geoMarker: function() {
+			if(this.geoMarkers.length > 0 && !this.lockGeocode) {
+				this.lockGeocode = true;
+				var current = this.geoMarkers.splice(0, 1);
+				this.geocode({address:current[0].address}, current[0]);
+			}
+			else if(this.lockGeocode) {
+				var goMap = this;
+				setTimeout(function() {
+					goMap.geoMarker();
+				}, this.opts.delay);
+			}
+		},
+
+		setMap: function(options) {
+			delete options.mapTypeId;
+
+			if (options.address) {
+				this.geocode({address: options.address, center: true});
+				delete options.address;
+			}
+			else if (options.latitude && options.longitude) {
+				options.center = new google.maps.LatLng(options.latitude, options.longitude);
+				delete options.longitude;
+				delete options.latitude;
+			}
+
+			if(options.mapTypeControlOptions && options.mapTypeControlOptions.position)
+				options.mapTypeControlOptions.position = google.maps.ControlPosition[options.mapTypeControlOptions.position.toUpperCase()];
+
+			if(options.mapTypeControlOptions && options.mapTypeControlOptions.style)
+				options.mapTypeControlOptions.style = google.maps.MapTypeControlStyle[options.mapTypeControlOptions.style.toUpperCase()];
+
+			if(options.navigationControlOptions && options.navigationControlOptions.position)
+				options.navigationControlOptions.position = google.maps.ControlPosition[options.navigationControlOptions.position.toUpperCase()];
+
+			if(options.navigationControlOptions && options.navigationControlOptions.style)
+				options.navigationControlOptions.style = google.maps.NavigationControlStyle[options.navigationControlOptions.style.toUpperCase()];
+
+			this.map.setOptions(options);
+		},
+
+		getMap: function() {
+		   return this.map;
+		},
+
+		createListener: function(type, event, data) {
+			var target;
+
+			if(typeof type != 'object')
+				type = {type:type};
+
+			if(type.type == 'map')
+				target = this.map;
+			else if(type.type == 'marker' && type.marker)
+				target = $(this.mapId).data(type.marker);
+			else if(type.type == 'info' && type.marker)
+				target = $(this.mapId).data(type.marker + 'info');
+
+			if(target)
+				return google.maps.event.addListener(target, event, data);
+			else if((type.type == 'marker' || type.type == 'info') && this.getMarkerCount() != this.getTmpMarkerCount())
+				var goMap = this;
+				setTimeout(function() {
+					goMap.createListener(type, event, data);
+				}, this.opts.delay);
+		},
+
+		removeListener: function(listener) {
+			google.maps.event.removeListener(listener);
+		},
+
+		setInfoWindow: function(marker, html) {
+			var goMap = this;
+			html.content    = goMap.opts.html_prepend + html.content + goMap.opts.html_append;
+			var infowindow  = new google.maps.InfoWindow(html);
+			infowindow.show = false;
+
+			$(goMap.mapId).data(marker.id + 'info',infowindow);
+
+			if (html.popup) {
+				goMap.openWindow(infowindow, marker, html);
+				infowindow.show = true;
+			}
+
+			google.maps.event.addListener(marker, 'click', function() {
+				if (infowindow.show && goMap.opts.hideByClick) {
+					infowindow.close();
+					infowindow.show = false;
+				}
+				else {
+					goMap.openWindow(infowindow, marker, html);
+					infowindow.show = true;
+				}
+			});
+		},
+
+		openWindow: function(infowindow, marker, html) {
+			if(this.opts.oneInfoWindow)
+				this.clearInfo();
+
+			if (html.ajax) {
+				infowindow.open(this.map, marker);
+				$.ajax({
+					url: html.ajax,
+					success: function(html) {
+						infowindow.setContent(html);
+					}
+				});
+			}
+			else if (html.id) {
+				infowindow.setContent($(html.id).html());
+				infowindow.open(this.map, marker);
+			}
+			else
+				infowindow.open(this.map, marker);
+		},
+
+		setInfo: function(id, text) {
+			var info = $(this.mapId).data(id + 'info');
+
+			if(typeof text == 'object')
+				info.setOptions(text);
+			else
+				info.setContent(text);
+		},
+
+		getInfo: function(id, hideDiv) {
+			 var info = $(this.mapId).data(id + 'info').getContent();
+			if(hideDiv)
+				return $(info).html();
+			else
+				return info;
+		},
+
+		clearInfo: function() {
+			for (var i = 0, l = this.markers.length; i < l; i++) {
+				var info = $(this.mapId).data(this.markers[i] + 'info');
+				if(info) {
+					info.close();
+					info.show = false;
+				}
+			}
+		},
+
+		fitBounds: function(type, markers) {
+			var goMap = this;
+			if(this.getMarkerCount() != this.getTmpMarkerCount())
+				setTimeout(function() {
+					goMap.fitBounds(type, markers);
+				}, this.opts.delay);
+			else {
+				this.bounds = new google.maps.LatLngBounds();
+
+				if(!type || (type && type == 'all')) {
+					for (var i = 0, l = this.markers.length; i < l; i++) {
+						this.bounds.extend($(this.mapId).data(this.markers[i]).position);
+					}
+				}
+				else if (type && type == 'visible') {
+					for (var i = 0, l = this.markers.length; i < l; i++) {
+						if(this.getVisibleMarker(this.markers[i]))
+							this.bounds.extend($(this.mapId).data(this.markers[i]).position);
+					}
+	
+				}
+				else if (type && type == 'markers' && $.isArray(markers)) {
+					for (var i = 0, l = markers.length; i < l; i++) {
+						this.bounds.extend($(this.mapId).data(markers[i]).position);
+					}
+				}
+				this.map.fitBounds(this.bounds);
+			}
+		},
+
+		getBounds: function() {
+			return this.map.getBounds();
+		},
+
+		createPolyline: function(poly) {
+			poly.type = 'polyline';
+			return this.createOverlay(poly);
+		},
+
+		createPolygon: function(poly) {
+			poly.type = 'polygon';
+			return this.createOverlay(poly);
+		},
+
+		createCircle: function(poly) {
+			poly.type = 'circle';
+			return this.createOverlay(poly);
+		},
+
+		createRectangle: function(poly) {
+			poly.type = 'rectangle';
+			return this.createOverlay(poly);
+		},
+
+		createOverlay: function(poly) {
+			var overlay = [];
+			if (!poly.id) {
+				this.count++;
+				poly.id = this.opts.polyId + this.count;
+			}
+			switch(poly.type) {
+				case 'polyline':
+					if (poly.coords.length > 0) {
+						for (var j = 0, l = poly.coords.length; j < l; j++)
+							overlay.push(new google.maps.LatLng(poly.coords[j].latitude, poly.coords[j].longitude));
+
+						overlay = new google.maps.Polyline({
+							map: this.map,
+							path: overlay,
+							strokeColor: 	poly.color ? poly.color : this.opts.polyline.color,
+							strokeOpacity:	poly.opacity ? poly.opacity : this.opts.polyline.opacity,
+							strokeWeight:	poly.weight ? poly.weight : this.opts.polyline.weight
+						});
+					}
+					else
+						return false;
+					break;
+				case 'polygon':
+					if (poly.coords.length > 0) {
+						for (var j = 0, l = poly.coords.length; j < l; j++)
+							overlay.push(new google.maps.LatLng(poly.coords[j].latitude, poly.coords[j].longitude));
+
+						overlay = new google.maps.Polygon({
+							map: this.map,
+							path: overlay,
+							strokeColor: poly.color ? poly.color : this.opts.polygon.color,
+							strokeOpacity: poly.opacity ? poly.opacity : this.opts.polygon.opacity,
+							strokeWeight: poly.weight ? poly.weight : this.opts.polygon.weight,
+							fillColor: poly.fillColor ? poly.fillColor : this.opts.polygon.fillColor,
+							fillOpacity: poly.fillOpacity ? poly.fillOpacity : this.opts.polygon.fillOpacity
+						});
+					}
+					else
+						return false;
+					break;
+				case 'circle':
+					overlay = new google.maps.Circle({
+						map: this.map,
+						center: new google.maps.LatLng(poly.latitude, poly.longitude),
+						radius: poly.radius,
+						strokeColor: poly.color ? poly.color : this.opts.circle.color,
+						strokeOpacity: poly.opacity ? poly.opacity : this.opts.circle.opacity,
+						strokeWeight: poly.weight ? poly.weight : this.opts.circle.weight,
+						fillColor: poly.fillColor ? poly.fillColor : this.opts.circle.fillColor,
+						fillOpacity: poly.fillOpacity ? poly.fillOpacity : this.opts.circle.fillOpacity
+					});
+					break;
+				case 'rectangle':
+					overlay = new google.maps.Rectangle({
+						map: this.map,
+						bounds: new google.maps.LatLngBounds(new google.maps.LatLng(poly.sw.latitude, poly.sw.longitude), new google.maps.LatLng(poly.ne.latitude, poly.ne.longitude)),
+						strokeColor: poly.color ? poly.color : this.opts.circle.color,
+						strokeOpacity: poly.opacity ? poly.opacity : this.opts.circle.opacity,
+						strokeWeight: poly.weight ? poly.weight : this.opts.circle.weight,
+						fillColor: poly.fillColor ? poly.fillColor : this.opts.circle.fillColor,
+						fillOpacity: poly.fillOpacity ? poly.fillOpacity : this.opts.circle.fillOpacity
+					});
+					break;
+				default:
+					return false;
+					break;
+			}
+			this.addOverlay(poly, overlay);
+			return overlay;
+		},
+
+		addOverlay: function(poly, overlay) {
+			$(this[this.overlays[poly.type].id]).data(poly.id, overlay);
+			this[this.overlays[poly.type].array].push(poly.id);
+		},
+
+		setOverlay: function(type, overlay, options) {
+			overlay = $(this[this.overlays[type].id]).data(overlay);
+
+			if (options.coords && options.coords.length > 0) {
+				var array = [];
+				for (var j = 0, l = options.coords.length; j < l; j++)
+					array.push(new google.maps.LatLng(options.coords[j].latitude, options.coords[j].longitude));
+
+				options.path = array;
+				delete options.coords;
+			}
+			else if (options.ne && options.sw) {
+				options.bounds = new google.maps.LatLngBounds(new google.maps.LatLng(options.sw.latitude, options.sw.longitude), new google.maps.LatLng(options.ne.latitude, options.ne.longitude));
+				delete options.ne;
+				delete options.sw;
+			}
+			else if (options.latitude && options.longitude) {
+
+				options.center = new google.maps.LatLng(options.latitude, options.longitude);
+				delete options.latitude;
+				delete options.longitude;
+			}
+			overlay.setOptions(options);
+		},
+
+		showHideOverlay: function(type, overlay, display) {
+			if(typeof display === 'undefined') {
+				if(this.getVisibleOverlay(type, overlay))
+					display = false;
+				else
+					display = true;
+			}
+
+			if(display)
+				$(this[this.overlays[type].id]).data(overlay).setMap(this.map);
+			else
+				$(this[this.overlays[type].id]).data(overlay).setMap(null);
+		},
+
+		getVisibleOverlay: function(type, overlay) {
+			if($(this[this.overlays[type].id]).data(overlay).getMap())
+				return true;
+			else
+				return false;
+		},
+
+		getOverlaysCount: function(type) {
+			return this[this.overlays[type].array].length;
+		},
+
+		removeOverlay: function(type, overlay) {
+			var index = $.inArray(overlay, this[this.overlays[type].array]), current;
+			if (index > -1) {
+				current = this[this.overlays[type].array].splice(index, 1);
+				var markerId = current[0];
+				$(this[this.overlays[type].id]).data(markerId).setMap(null);
+				$(this[this.overlays[type].id]).removeData(markerId);
+
+				return true;
+			}
+			return false;
+		},
+
+		clearOverlays: function(type) {
+			for (var i = 0, l = this[this.overlays[type].array].length; i < l; i++) {
+				var markerId = this[this.overlays[type].array][i];
+				$(this[this.overlays[type].id]).data(markerId).setMap(null);
+				$(this[this.overlays[type].id]).removeData(markerId);
+			}
+			this[this.overlays[type].array] = [];
+		},
+
+		showHideMarker: function(marker, display) {
+			if(typeof display === 'undefined') {
+				if(this.getVisibleMarker(marker)) {
+					$(this.mapId).data(marker).setVisible(false);
+					var info = $(this.mapId).data(marker + 'info');
+					if(info && info.show) {
+						info.close();
+						info.show = false;
+					}
+				}
+				else
+					$(this.mapId).data(marker).setVisible(true);
+			}
+			else
+				$(this.mapId).data(marker).setVisible(display);
+		},
+
+		showHideMarkerByGroup: function(group, display) {
+			for (var i = 0, l = this.markers.length; i < l; i++) {
+				var markerId = this.markers[i];
+				var marker	 = $(this.mapId).data(markerId);
+				if(marker.group == group) {
+					if(typeof display === 'undefined') {
+						if(this.getVisibleMarker(markerId)) {
+							marker.setVisible(false);
+							var info = $(this.mapId).data(markerId + 'info');
+							if(info && info.show) {
+								info.close();
+								info.show = false;
+							}
+						}
+						else
+							marker.setVisible(true);
+					}
+					else
+						marker.setVisible(display);
+				}
+			}
+		},
+
+		getVisibleMarker: function(marker) {
+			return $(this.mapId).data(marker).getVisible();
+		},
+
+		getMarkerCount: function() {
+			return this.markers.length;
+		},
+
+		getTmpMarkerCount: function() {
+			return this.tmpMarkers.length;
+		},
+
+		getVisibleMarkerCount: function() {
+			return this.getMarkers('visiblesInMap').length;
+		},
+
+		getMarkerByGroupCount: function(group) {
+			return this.getMarkers('group', group).length;
+		},
+
+		getMarkers: function(type, name) {
+			var array = [];
+			switch(type) {
+				case "json":
+					for (var i = 0, l = this.markers.length; i < l; i++) {
+						var temp = "'" + i + "': '" + $(this.mapId).data(this.markers[i]).getPosition().toUrlValue() + "'";
+						array.push(temp);
+					}
+					array = "{'markers':{" + array.join(",") + "}}";
+					break;
+				case "data":
+					for (var i = 0, l = this.markers.length; i < l; i++) {
+						var temp = "marker[" + i + "]=" + $(this.mapId).data(this.markers[i]).getPosition().toUrlValue();
+						array.push(temp);
+					}
+					array = array.join("&"); 					
+					break;
+				case "visiblesInBounds":
+					for (var i = 0, l = this.markers.length; i < l; i++) {
+						if (this.isVisible($(this.mapId).data(this.markers[i]).getPosition()))
+							array.push(this.markers[i]);
+					}
+					break;
+				case "visiblesInMap":
+					for (var i = 0, l = this.markers.length; i < l; i++) {
+						if(this.getVisibleMarker(this.markers[i]))
+							array.push(this.markers[i]);
+					}
+					break;
+				case "group":
+					if(name)
+						for (var i = 0, l = this.markers.length; i < l; i++) {
+							if($(this.mapId).data(this.markers[i]).group == name)
+								array.push(this.markers[i]);
+						}
+					break;
+				case "markers":
+					for (var i = 0, l = this.markers.length; i < l; i++) {
+						var temp = $(this.mapId).data(this.markers[i]);
+						array.push(temp);
+					}
+					break;
+				default:
+					for (var i = 0, l = this.markers.length; i < l; i++) {
+						var temp = $(this.mapId).data(this.markers[i]).getPosition().toUrlValue();
+						array.push(temp);
+					}
+					break;
+			}
+			return array;
+		},
+
+		getVisibleMarkers: function() {
+			return this.getMarkers('visiblesInBounds');
+		},
+
+		createMarker: function(marker) {
+			if (!marker.geocode) {
+				this.count++;
+				if (!marker.id)
+					marker.id = this.opts.prefixId + this.count;
+				this.tmpMarkers.push(marker.id);
+			}
+			if (marker.address && !marker.geocode) {
+				this.geoMarkers.push(marker);
+				this.geoMarker();
+			}
+			else if (marker.latitude && marker.longitude || marker.position) {
+				var options = { map:this.map };
+				options.id 			= marker.id;
+				options.group		= marker.group ? marker.group : this.opts.groupId; 
+				options.zIndex 		= marker.zIndex ? marker.zIndex : 0;
+				options.zIndexOrg	= marker.zIndexOrg ? marker.zIndexOrg : 0;
+
+				if (marker.visible == false)
+					options.visible = marker.visible;
+
+				if (marker.title)
+					options.title = marker.title;
+
+				if (marker.draggable)
+					options.draggable = marker.draggable;
+
+				if (marker.icon && marker.icon.image) {
+					options.icon = marker.icon.image;
+					if (marker.icon.shadow)
+						options.shadow = marker.icon.shadow;
+				}
+				else if (marker.icon)
+					options.icon = marker.icon;
+
+				else if (this.opts.icon && this.opts.icon.image) {
+					options.icon = this.opts.icon.image;
+					if (this.opts.icon.shadow)
+						options.shadow = this.opts.icon.shadow;
+				}
+				else if (this.opts.icon)
+					options.icon = this.opts.icon;
+
+				options.position = marker.position ? marker.position : new google.maps.LatLng(marker.latitude, marker.longitude);
+
+				var cmarker = new google.maps.Marker(options);
+
+				if (marker.html) {
+					if (!marker.html.content && !marker.html.ajax && !marker.html.id)
+						marker.html = { content:marker.html };
+					else if (!marker.html.content)
+						marker.html.content = null;
+
+					this.setInfoWindow(cmarker, marker.html);
+				}
+				this.addMarker(cmarker);
+				return cmarker;
+			}
+		},
+
+		addMarker: function(marker) {
+			$(this.mapId).data(marker.id, marker);
+			this.markers.push(marker.id);
+		},
+
+		setMarker: function(marker, options) {
+			var tmarker = $(this.mapId).data(marker);
+
+			delete options.id;
+			delete options.visible;
+
+			if(options.icon) {
+				var toption = options.icon;
+				delete options.icon;
+
+				if(toption && toption == 'default') {
+					if (this.opts.icon && this.opts.icon.image) {
+						options.icon = this.opts.icon.image;
+						if (this.opts.icon.shadow)
+							options.shadow = this.opts.icon.shadow;
+					}
+					else if (this.opts.icon)
+						options.icon = this.opts.icon;
+				}
+				else if(toption && toption.image) {
+					options.icon = toption.image;
+					if (toption.shadow)
+						options.shadow = toption.shadow;
+				}
+				else if (toption)
+					options.icon = toption;
+			}
+
+			if (options.address) {
+				this.geocode({address: options.address}, {markerId:tmarker});
+				delete options.address;
+				delete options.latitude;
+				delete options.longitude;
+				delete options.position;
+			}
+			else if (options.latitude && options.longitude || options.position) {
+				if (!options.position)
+					options.position = new google.maps.LatLng(options.latitude, options.longitude);
+			}
+			tmarker.setOptions(options);
+		},
+
+		removeMarker: function(marker) {
+			var index = $.inArray(marker, this.markers), current;
+			if (index > -1) {
+				this.tmpMarkers.splice(index,1);
+				current = this.markers.splice(index,1);
+				var markerId = current[0];
+				var marker   = $(this.mapId).data(markerId);
+				var info     = $(this.mapId).data(markerId + 'info');
+
+				marker.setVisible(false);
+				marker.setMap(null);
+				$(this.mapId).removeData(markerId);
+
+				if(info) {
+					info.close();
+					info.show = false;
+					$(this.mapId).removeData(markerId + 'info');
+				}
+				return true;
+			}
+			return false;
+		},
+
+		clearMarkers: function() {
+			for (var i = 0, l = this.markers.length; i < l; i++) {
+				var markerId = this.markers[i];
+				var marker   = $(this.mapId).data(markerId);
+				var info     = $(this.mapId).data(markerId + 'info');
+
+				marker.setVisible(false);
+				marker.setMap(null);
+				$(this.mapId).removeData(markerId);
+
+				if(info) {
+					info.close();
+					info.show = false;
+					$(this.mapId).removeData(markerId + 'info');
+				}
+			}
+			this.singleMarker = false;
+			this.lockGeocode = false;
+			this.markers = [];
+			this.tmpMarkers = [];
+			this.geoMarkers = [];
+		},
+
+		isVisible: function(latlng) {
+			return this.map.getBounds().contains(latlng);
+		}
+	}
+})(jQuery);
