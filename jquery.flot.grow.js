@@ -126,7 +126,7 @@ THE SOFTWARE.
                 plt.setData(data);
                 plt.draw();
                 timeDiff = new Date() - startTime;
-                growfunc = window.setTimeout(growingLoop, Math.max(0,opt.series.grow.stepDelay - timeDiff);
+                growfunc = window.setTimeout(growingLoop, Math.max(0,opt.series.grow.stepDelay - timeDiff));
             }
             else{ window.clearTimeout(growfunc); growfunc = null; }
             function growNone(){

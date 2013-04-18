@@ -71,7 +71,7 @@ THE SOFTWARE.
             z = $.plot.JUMExample.docuObjectToTemplate(
                 [ {name:"data",tree:series.data},
                 {name:"options.series.bandwidth",tree:options.series.video,takeDefault:true},
-                {name:"options.series.bandwidth",tree:opt.series.video},
+                {name:"options.series.bandwidth",tree:opt.series.video}
                 ],pluginName); 
             $.plot.JUMExample.extendDocuObject(z,pluginName);
             frm = $.plot.JUMExample.docuObjectToEdit(z,"");
