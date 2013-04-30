@@ -51,8 +51,10 @@ THE SOFTWARE.
 		$.plot.JUMlib.library.showTooltip(pos.pageX,pos.pageY,txt);
 	}
 	var actDocu = {data:null,form:null,target:null};
-	function getDocu(p,pluginname,t){ 
-		var r = p.getOptions().series[pluginname].debug.createDocuTemplate();
+	function getDocu(p,pluginname,t){
+	    var opt = p.getOptions();
+	    var d = opt.series[pluginname] || opt.grid[pluginname] || opt[pluginname];
+		var r = d.debug.createDocuTemplate();
 		actDocu.data = r.data; actDocu.form = r.form; actDocu.target = t;
 		$(actDocu.target).html(actDocu.form);
 	}
@@ -91,7 +93,7 @@ THE SOFTWARE.
             msg += names[names.length - 1] + ':';
             if(areas[i].takeDefault){ takedef = areas[i].takeDefault;} else{ takedef = false; }
             msg += docuSubtree(areas[i].tree,takedef) + '}';
-            for(j = 0; j < areas[i].name.split('.').length -1; j++){
+            for(j = 0; j < names.length -1; j++){
                 msg += '}';
             }
             msg += objEnd;
@@ -100,14 +102,18 @@ THE SOFTWARE.
         return obj;
         function docuSubtree(obj,takedef){
             var msg = "";
+
             if(typeof obj === "object"){
                 msg = '{"docu":""';
                 for(var i in obj){
-                    if(typeof obj[i] === "object"){
-                        if($.isNumeric(i)){ msg += '\n,"' + i + '":'; }
-                        else{msg += '\n,' + i + ':'; }
-                        msg += docuSubtree(obj[i],takedef);
-                        msg +='}';
+                    if(typeof obj[i] === "object"){ 
+                        if(i !== "image"){
+                            if($.isNumeric(i)){ msg += '\n,"' + i + '":'; }
+                            else{msg += '\n,' + i + ':'; }
+                            msg += docuSubtree(obj[i],takedef);
+                            msg +='}';
+                        }
+                        else{ msg+= "\n," + i + ':{"docu":""}'; }
                     }
                     else if(typeof obj[i] === "function"){ 
                         var fn = obj[i].toSource();

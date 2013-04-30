@@ -26,10 +26,12 @@ THE SOFTWARE.
     var options ={
         animate:{
             active:false,
-            mode:"tile",tiles:{x:3,y:3},
+            mode:"tile",  //tile,pixastic, more to follow
+            tile:{ x:3, y:3, mode:"lt"},   //
             pixastic:{ maxValue: 1, mode:"blurfast"},
             stepDelay:500,
-            steps:20
+            steps:20,
+            debug:{active:false,createDocuTemplate: null}
         }
     };
     function init(plot,classes){
@@ -39,7 +41,19 @@ THE SOFTWARE.
             if(options.animate.active === true){
                 plot.hooks.draw.push(draw);
                 plot.hooks.bindEvents.push(bindEvents);
+                opt = options;
+                if(options.animate.debug.active === true) {opt.animate.debug.createDocuTemplate = createDocuTemplate; }
             }
+        }
+        function createDocuTemplate(){
+            var z,frm;
+            z = $.plot.JUMExample.docuObjectToTemplate(
+                [ {name:"options.animate",tree:options.animate,takeDefault:true},
+                  {name:"options.animate",tree:opt.animate}
+                ],pluginName); 
+            $.plot.JUMExample.extendDocuObject(z,pluginName);
+            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
+            return { data:z, form:frm};
         }
         function draw(plot,ctx){
             lctx = ctx;
@@ -56,9 +70,9 @@ THE SOFTWARE.
             lctx.clearRect(0,0,lctx.canvas.width,lctx.canvas.height);
             switch(opt.animate.mode){
                 case "tile":
-                    animateTile(); break;
+                    animateTile(opt.animate.tile); break;
                 case "pixastic":
-                    animatePixastic(); break;
+                    animatePixastic(opt.animate.pixastic); break;
                 default:
                     lctx.putImageData(actx.getImageData(0,0,actx.canvas.width,actx.canvas.height),0,0);
             }
@@ -102,22 +116,48 @@ THE SOFTWARE.
                     }                   
                 }               
             }
-            function animateTile(){
-                var x = 0, y = 0,
-                    w = lctx.canvas.width / opt.animate.tiles.x,
-                    h = lctx.canvas.height / opt.animate.tiles.y,
-                    startdate = new Date(),
-                    duration = opt.animate.stepDelay;
+            function animateTile(lopt){
+                var x,y,flds = [],w = lctx.canvas.width / lopt.x,h = lctx.canvas.height / lopt.y,
+                    startdate = new Date(),duration = opt.animate.stepDelay;
+                switch(lopt.mode){
+                    case "lt": x = 0; y = 0; break;
+                    case "tl": x = 0; y = 0; break;
+                    case "rb": x = lopt.x - 1; y = lopt.y - 1; break;
+                    case "br": x = lopt.x - 1; y = lopt.y - 1; break;
+                    case "random":
+                        for(var i = 0; i < lopt.x; i++){ for(var j = 0; j < lopt.y; j++){flds.push([i,j]);} }
+                        var r = parseInt(Math.random() * flds.length);
+                        x = flds[r][0]; y = flds[r][1]; flds.splice(r,1);
+                        break;
+                }
                 animating();
                 duration = duration - (new Date() - startdate);
-                x = 1;
                 animateFunc = window.setInterval(animating, duration);                
                 function animating(){
                     lctx.putImageData(actx.getImageData(x * w,y * h,w,h),x * w, y * h);
-                    x++;
-                    if(x >= opt.animate.tiles.x) { 
-                        y++; x = 0;
-                        if(y >= opt.animate.tiles.y){window.clearInterval(animateFunc);}
+                    nextStep();
+                }
+                function nextStep(){
+                    switch(lopt.mode){
+                        case "lt":
+                            if(x++ >= lopt.x) { x = 0; if(y++ >= lopt.y){window.clearInterval(animateFunc);} }
+                            break;
+                        case "tl":
+                            if(y++ >= lopt.y) { y = 0; if (x++ >= lopt.x){window.clearInterval(animateFunc);} }
+                            break;
+                        case "rb":
+                            if(x-- < 0) { x = lopt.x - 1; if(y-- < 0) {window.clearInterval(animateFunc);} }
+                            break;
+                        case "br":
+                            if(y-- < 0) { y = lopt.y - 1; if(x-- < 0) {window.clearInterval(animateFunc);} }
+                            break;
+                        case "random":
+                            if(flds.length === 0){window.clearInterval(animateFunc);}
+                            else{
+                                var r = parseInt(Math.random() * flds.length);
+                                x = flds[r][0]; y = flds[r][1]; flds.splice(r,1);
+                            }
+                            break;
                     }
                 }
             }

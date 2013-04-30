@@ -361,26 +361,6 @@ THE SOFTWARE.
             return c;
         }
     }
-    function loadImagesOld(images,maxWait,callback){
-        var tmp,loadedImg = {};
-        tmp = '$.when(';
-        for(var i = 0; i < images.length; i++){
-            if(i > 0){ tmp += ',';}
-            tmp += 'loadImage("' + images[i].path +'","' + images[i].name  + '","' + images[i].type + '")'
-        }
-        tmp += ').then(function(){finish();},function(){finish();});';
-        eval(tmp);
-        function loadImage(path,name,type){
-            var dfd = $.Deferred(),t,url;
-            url = path + name + "." + type;
-            t = setInterval(function(){clearInterval(t);dfd.reject();},maxWait);
-            $('<img />').attr('src',url).load(loaded).error(errorFound);
-            return dfd.promise();
-            function loaded(){loadedImg[name] = this;dfd.resolve();}
-            function errorFound(e,f,g){console.log(url,e);loadedImg[name] = null;dfd.reject();}    
-        }
-        function finish(){ callback(loadedImg); }
-    } 
     function loadImages(images,maxWait,callback){
         var loadedImg = {},defs = [];
         for(var i = 0; i < images.length; i++){ defs.push(loadImage(images[i])); }

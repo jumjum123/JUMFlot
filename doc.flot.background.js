@@ -24,5 +24,47 @@ THE SOFTWARE.
 
 $.plot.JUMExample.docu.background = {
 "docu":"Documentation","background":{
+"docu":"<strong>Plugin to fraw background and/or overlay</strong>.<br>Background is drawn on an additional canvas context. Critical point is the use of zIndex, since some plugins change zIndex to negativ values.<br>See option zIndex how to handle this.","options":{
+"docu":"","grid":{
+"docu":"Standard grid object from Flot","background":{
+"docu":"special options for background only","active":{
+"docu":"activate the plugin","defVal":"false"}
+,"mode":{
+"docu":"optional values are image, color and userdefined","defVal":"color"}
+,"color":{
+"docu":"specific options for color mode","colors":{
+"docu":"array of colors for color gradient","0":{
+"docu":"","defVal":"white"}
+,"1":{
+"docu":"1st Color","defVal":"yellow"}
+,"2":{
+"docu":"2nd Color","defVal":"orange"}
+,"3":{
+"docu":"believe it or not, this is 3rd color ;-)","defVal":"blue"}
+}
+}
+,"image":{
+"docu":"specific options for image mode. This is set to an image object, see example for more details"}
+,"fncDraw":{
+"docu":"for calling userdefined backgrounds this is used for a function call. See examples with a clock running in the background"}
+,"setZIndex":{
+"docu":"option for setting all canvas to a specific value. Very helpful for using jQuery UI.<br>True sets background to 0, drawing area to 1 and highlight to 2<br>A number sets drawing area to the given number, background to number-- and highlight to number++ ","defVal":"false"}
+,"debug":{
+"docu":"for debugging reasons. Right now, create a template for documentation is supported. This is filled by already existing docu, and converted to a formular to edit. After editing the edited data can be stringified to be copied to the docu-object.","active":{
+"docu":"Activates the Debug function","defVal":"false"}
+,"createDocuTemplate":{
+"docu":"if debug.active is true, this holds the function which is used to create the template for documentation"}
+}
+}
+,"overlay":{
+"docu":"Specific options for drawing overlays. Overlay image is drawn on drawing area with given opacity.<br>This does not work for those plugins, that use hook draw","active":{
+"docu":"Activates drawing an overlay","defVal":"false"}
+,"image":{
+"docu":"This is set to an image object, works similiar to image in background part"}
+,"opacity":{
+"docu":"Opacity for drawing overlay image","defVal":"0.2"}
+}
+}
+}
 }
 }

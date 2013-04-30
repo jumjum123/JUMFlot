@@ -24,35 +24,63 @@ THE SOFTWARE.
 
 (function ($){
     "use strict";
-    var pluginName = "video", pluginVersion = "0.1";
+    var pluginName = "video", pluginVersion = "0.2";
     var options ={
         series: {
             video:{
                 active: false,
                 show: false,
-                stepAction: videoStep,
-                walkPad: null, walkTime:2000,
+                stepAction: "default",
+                stepCollection:{
+                    default: { runStep: addStepData, walkPad: "#stepPad", walkTime:2000 },
+                    youtube: { runStep: youtubeStep, videoPad: "#videoPad", width: 400, height: 300, maxDuration: 20000, noVideoDuration:2000 }                    
+                },
                 debug:{active:false,createDocuTemplate: null}
             }
         }
     };
     var replaceOptions = { grid:{ show: false} };
     var defaultOptions = { };
-    function videoStep(stepData){
+    function addStepData(stepData,actionData){
         var dfd,t;
-        if(stepData.serie.video.walkPad) {
+        if(actionData.walkPad) {
            dfd = $.Deferred();
-           $(stepData.serie.video.walkPad).append("<br>" + stepData.data[2]);
-           t = window.setTimeout(function(){ dfd.resolve();},stepData.serie.video.walkTime );
+           $(actionData.walkPad).append("<br>" + stepData.data[2]);
+           t = window.setTimeout(function(){ dfd.resolve();},actionData.walkTime );
            return dfd.promise(); 
         }
-        else { 
-            alert(stepData.data[2]);
-        }
+        else { alert(stepData.data[2]);}
     }
-    	
+    function youtubeStep(stepData,actionData){
+        var dfd,t;
+        if(actionData.videoPad){
+            dfd = $.Deferred();
+            if(stepData.data.length>3){
+                if(typeof stepData.data[3] === "string"){
+                    jQuery.tubeplayer.defaults.afterReady = function(){
+                        jQuery(actionData.videoPad).tubeplayer("play");
+                    };                    
+                    jQuery(actionData.videoPad).tubeplayer({
+                        width: actionData.width,height: actionData.height,
+                        initialVideo: stepData.data[3], 
+                        onPlayerEnded: finishPlayer,onStop: finishPlayer
+                    });
+                    jQuery(actionData.videoPad).tubeplayer("play");
+                    t = window.setTimeout(function(){ finishPlayer(); }, actionData.maxDuration); 
+                }                
+            }
+            else { t = window.setTimeout(function(){ dfd.resolve(); }, actionData.noVideoDuration)}
+            
+            return dfd.promise();
+        }
+        else{ alert("no videoPad defined"); }
+        function finishPlayer(){
+            jQuery(actionData.videoPad).tubeplayer("destroy");
+            dfd.resolve(); 
+        }
+    }	
     function init(plot, classes){ 
-        var data = null, opt = null, plt = null;
+        var data = null, opt = null, plt = null, series = null;
         var done = false, actualStep = 0, maxSteps = 0, defs = [];
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
@@ -70,8 +98,8 @@ THE SOFTWARE.
             var z,frm;
             z = $.plot.JUMExample.docuObjectToTemplate(
                 [ {name:"data",tree:series.data},
-                {name:"options.series.bandwidth",tree:options.series.video,takeDefault:true},
-                {name:"options.series.bandwidth",tree:opt.series.video}
+                {name:"options.series.video",tree:options.series.video,takeDefault:true},
+                {name:"options.series.video",tree:opt.series.video}
                 ],pluginName); 
             $.plot.JUMExample.extendDocuObject(z,pluginName);
             frm = $.plot.JUMExample.docuObjectToEdit(z,"");
@@ -84,6 +112,7 @@ THE SOFTWARE.
                     data = plot.getData();
                     for(i = 0; i < data.length; i++){
                         if(data[i].video.show === true){
+                            series = data[i].data;
                             maxSteps = Math.max(maxSteps,data[i].data.length)
                             data[i].dataOrg = clone(data[i].data);
                             for(j = 0; j < data[i].data.length; j++){ data[i].data[j] = null; }
@@ -101,19 +130,17 @@ THE SOFTWARE.
             }
         }
         function videoLoop(){
-            var i,defs = [],r;
+            var i,defs = [],r,v;
             for(var i = 0; i < data.length; i++){ 
                 if(data[i].video.show === true){
                     data[i].data[actualStep] = data[i].dataOrg[actualStep];
                     plt.setData(data);
                     plt.draw();
-                    r = {
-                        seriesIndex:i,
-                        dataIndex:actualStep,
-                        data:data[i].data[actualStep],
-                        serie: data[i]
-                    };
-                    defs.push(data[i].video.stepAction(r));
+                    v = data[i].video;
+                    r = { seriesIndex:i, dataIndex:actualStep, data:data[i].data[actualStep], serie: data[i]};
+                    if(typeof v.stepAction === "string"){
+                        defs.push(v.stepCollection[v.stepAction].runStep(r,v.stepCollection[v.stepAction])); }
+                    else if(typeof v.stepAction === "object"){defs.push(v.stepAction.runStep(r,v.stepAction)); }
                 }
             }
             actualStep++;

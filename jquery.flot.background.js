@@ -31,21 +31,44 @@ THE SOFTWARE.
                 color:{colors:["white","yellow","orange","blue"] },
                 image:null,
                 fncDraw:null,
-                setZIndex: false
+                setZIndex: false,
+                debug:{active:false,createDocuTemplate: null}
+            },
+            overlay:{
+                active:false,
+                image:null,
+                opacity:0.2
             }
         }
     };
     function init(plot,classes){
         var Canvas,background,bctx,opt,offset;
+        var acanvas,actx,animateFunc,lctx;
         Canvas = classes.Canvas;
         plot.hooks.processOptions.push(processOptions);
         function processOptions(plot,options){
             if(options.grid.background.active === true){
+                opt = options;
                 plot.hooks.drawBackground.push(drawBackground);
+                if(options.grid.overlay.active === true) plot.hooks.draw.push(draw);
+                if(options.grid.background.debug.active === true) {opt.grid.background.debug.createDocuTemplate = createDocuTemplate; }
             }
+        }
+        function createDocuTemplate(){
+            var z,frm;
+            z = $.plot.JUMExample.docuObjectToTemplate(
+                [ {name:"options.grid.background",tree:opt.grid.background,takeDefault:true},
+                  {name:"options.grid.background",tree:options.grid.background,takeDefault:true},
+                  {name:"options.grid.overlay",tree:opt.grid.overlay,takeDefault:true},
+                  {name:"options.grid.overlay",tree:options.grid.overlay,takeDefault:true}
+                ],pluginName); 
+            $.plot.JUMExample.extendDocuObject(z,pluginName);
+            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
+            return { data:z, form:frm};
         }
         function drawBackground(plot,ctx){
             opt = plot.getOptions();
+            lctx = ctx;
             var zIndex = opt.grid.background.setZIndex;
             background = new Canvas("flot-background", plot.getPlaceholder());
             if($.isNumeric(zIndex) === true){
@@ -97,7 +120,17 @@ THE SOFTWARE.
             bctx.fillStyle = color;
             bctx.fillRect(0,0,plot.width(),plot.height());
         }
-    }
+        function draw(plot,ctx){
+            var img = opt.grid.overlay.image;
+            var d = '<div style="position:absolute;width:' + plot.width() + ';height:' + plot.height() + ';'
+                + 'top:' + offset.top + ';left:' + offset.left + ';">';
+            d = $(d);
+            $(img).css("opacity",opt.grid.overlay.opacity).width(plot.width()).height(plot.height());
+            $(img).css("top",offset.top).css("position","absolute").css("left",offset.left);
+            $(img).appendTo(d);
+            d.appendTo(plot.getPlaceholder());
+        }
+     }
     var getColor = $.plot.JUMlib.data.getColor;
     $.plot.plugins.push({
         init: init,

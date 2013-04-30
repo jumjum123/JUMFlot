@@ -39,7 +39,17 @@ THE SOFTWARE.
         }
     };
     var replaceOptions = { };
-    var defaultOptions = { };	
+    var defaultOptions = {
+        series: {
+            editMode: 'xy',
+            nearBy: {
+                distance: 7,
+                findItem: null,
+                findMode: "circle",
+                drawHover: null
+            }
+        }
+    };	
     function init(plot){
         var offset = null, opt = null, series = null;
         plot.hooks.processOptions.push(processOptions);
@@ -64,10 +74,8 @@ THE SOFTWARE.
             var z,frm;
             z = $.plot.JUMExample.docuObjectToTemplate(
                 [ {name:"data",tree:series.data},
-                {name:"options.series.bandwidth",tree:options.series.contour,takeDefault:true},
-                {name:"options.series.bandwidth",tree:opt.series.contour},
-                {name:"options.series.editMode",tree:options.series.editMode,takeDefault:true},
-                {name:"options.series.editMode",tree:opt.series.editMode},
+                {name:"options.series.contour",tree:options.series.contour,takeDefault:true},
+                {name:"options.series.contour",tree:opt.series.contour},
                 {name:"options.series.nearBy",tree:options.series.nearBy,takeDefault:true},
                 {name:"options.series.nearBy",tree:opt.series.nearBy}
                 ],pluginName); 

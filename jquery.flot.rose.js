@@ -34,18 +34,13 @@ THE SOFTWARE.
                 leafSize: 0.7,
                 dataMin: 0,
                 dataMax: 100,
+                drawGrid: {drawValue:true, drawLabel: true, labelPos:0.5, gridMode: "data"},
                 highlight: { opacity: 0.5 },
                 debug:{active:false,createDocuTemplate: null}
             }
         }
     };
-    var replaceOptions = {
-        grid:{
-            show:false,
-            ranges:5,
-            font: "18px Times New Roman"
-        }
-    };
+    var replaceOptions = { grid:{ show:false} };
     var defaultOptions = {
         series:{        
             nearBy:{distance: 6,
@@ -54,7 +49,8 @@ THE SOFTWARE.
                 drawEdit: null,
                 drawHover: null
             }
-        }
+        },
+        grid:{ ranges:5, font:"18px Times New Roman"}
 
     };
     function init(plot) {
@@ -93,23 +89,38 @@ THE SOFTWARE.
                 series.nearBy.findItem = findNearbyItemRose;
                 series.nearBy.drawHover = drawHoverRose;
                 offset = plot.getPlotOffset();
-                leafAngle = 360 / series.data.length;
+                switch(opt.series.rose.drawGrid.gridMode){
+                    case "data":
+                        leafAngle = 360 / series.data.length; break;
+                    case "ticks":
+                        leafAngle = 360 / opt.grid.tickLabel.length; break;
+                }
                 offsetAngle = leafAngle * (1 - opt.series.rose.leafSize) / 2;    
             }
         }
         function drawSeries(plot, ctx, serie){
-            var angle,angleStart,angleEnd,radius,color,colorData;
+            var angle,angleStart,angleEnd,radius,color,colorData,dt;
             if (serie.rose.show) {
                 series = serie;
                 angle = 0;
                 for(var j = 0; j < serie.data.length; j++){
+                    dt = serie.data[j];
                     angleStart = angle + offsetAngle;
                     angleEnd = angle + leafAngle - offsetAngle;
-                    angle += leafAngle; 
-                    radius = getPieRadius(serie.data[j]);
-                    colorData = { ctx:ctx,serie:serie,serieIndex:j,colors:colors,radius:radius,left:centerLeft,top:centerTop};
-                    color = getColor(colorData);
-                    drawPie(ctx,angleStart,angleEnd,radius,color);
+                    angle += leafAngle;
+                    if(dt.length){
+                        radius = getPieRadius(dt[0]);
+                        colorData = { ctx:ctx,serie:serie,serieIndex:j,colors:colors,radius:radius,left:centerLeft,top:centerTop};
+                        color = getColor(colorData);
+                        drawPie(ctx,dt[1],dt[2],radius,color);
+                    }
+                    else
+                    {
+                        radius = getPieRadius(dt);
+                        colorData = { ctx:ctx,serie:serie,serieIndex:j,colors:colors,radius:radius,left:centerLeft,top:centerTop};
+                        color = getColor(colorData);
+                        drawPie(ctx,angleStart,angleEnd,radius,color);
+                    }
                 }
             }
         }
@@ -139,11 +150,11 @@ THE SOFTWARE.
             ctx.fillStyle = opt.grid.color;
             for(i = 1; i <= opt.grid.ranges; i++){
                 drawGridRange(ctx,i);
-                drawGridValue(ctx,i);
+                if(opt.series.rose.drawGrid.drawValue === true){ drawGridValue(ctx,i);}
             }
             for(i = 0; i < opt.grid.tickLabel.length; i++){
                 drawGridLine(ctx,angle);
-                drawGridLabel(ctx,angle + leafAngle / 2,opt.grid.tickLabel[i]);
+                drawGridLabel(ctx,angle + leafAngle * series.rose.drawGrid.labelPos,opt.grid.tickLabel[i]);
                 angle += leafAngle;
             }
             function drawGridRange(ctx,i){

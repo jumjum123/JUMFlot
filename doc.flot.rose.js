@@ -43,6 +43,16 @@ $.plot.JUMExample.docu.rose = {
 "docu":"Minimum value for the rose. This is not calculated form data (yet), so you have to give data.","defVal":"0"}
 ,"dataMax":{
 "docu":"Maximum value for the rose. This is not calculated form data (yet), so you have to give data.","defVal":"100"}
+,"drawGrid":{
+"docu":"","drawValue":{
+"docu":"","defVal":"true"}
+,"drawLabel":{
+"docu":"","defVal":"true"}
+,"labelPos":{
+"docu":"","defVal":"0.5"}
+,"gridMode":{
+"docu":"","defVal":"data"}
+}
 ,"highlight":{
 "docu":"Describes how highlighting (in case of HOVER) is displayed","opacity":{
 "docu":"Default for highlighting is to change opacity only","defVal":"0.5"}
