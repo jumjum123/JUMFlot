@@ -30,9 +30,9 @@ THE SOFTWARE.
             video:{
                 active: false,
                 show: false,
-                stepAction: "default",
+                stepAction: "simple",
                 stepCollection:{
-                    default: { runStep: addStepData, walkPad: "#stepPad", walkTime:2000 },
+                    simple: { runStep: addStepData, walkPad: "#stepPad", walkTime:2000 },
                     youtube: { runStep: youtubeStep, videoPad: "#videoPad", width: 400, height: 300, maxDuration: 20000, noVideoDuration:2000 }                    
                 },
                 debug:{active:false,createDocuTemplate: null}
