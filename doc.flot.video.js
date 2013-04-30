@@ -34,9 +34,9 @@ $.plot.JUMExample.docu.video = {
 ,"show":{
 "docu":"take data from show specific serie for video, this needs to be overwritten in data ","defVal":"false"}
 ,"stepAction":{
-"docu":"describes how the step should be shown. Default stephandling can be selected out of stepCollection:<br>default: appends information from data to a div or if no div given opens an alertbox<br>youtube: if a youtube id is given, the video is shown<br>a function name: the given function is called by handing over actual stepdata and seriesdata","defVal":"default"}
+"docu":"describes how the step should be shown. Default stephandling can be selected out of stepCollection:<br>default: appends information from data to a div or if no div given opens an alertbox<br>youtube: if a youtube id is given, the video is shown<br>a function name: the given function is called by handing over actual stepdata and seriesdata","defVal":"simple"}
 ,"stepCollection":{
-"docu":"collection of predefined videosteps","default":{
+"docu":"collection of predefined videosteps","simple":{
 "docu":"default step giving information in a very simple way, see first example.","runStep":{
 "docu":"Adds stepData to a div defined in walkPad","defVal":" addStepData(stepData,actionData)"}
 ,"walkPad":{
