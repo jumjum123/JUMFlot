@@ -55,6 +55,7 @@ THE SOFTWARE.
         var valueIndex;
         plot.hooks.bindEvents.push(processbindEvents);
         plot.hooks.drawSeries.push(processSeries);
+        plot.hooks.shutdown.push(shutdown);
         function createDocuTemplate(){
             var z,frm;
             z = $.plot.JUMExample.docuObjectToTemplate(
