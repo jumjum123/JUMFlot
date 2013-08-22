@@ -32,16 +32,17 @@ THE SOFTWARE.
                 show: false,
                 stepAction: "simple",
                 stepCollection:{
-                    simple: { runStep: addStepData, walkPad: "#stepPad", walkTime:2000 },
-                    youtube: { runStep: youtubeStep, videoPad: "#videoPad", width: 400, height: 300, maxDuration: 20000, noVideoDuration:2000 }                    
-                },
-                debug:{active:false,createDocuTemplate: null}
+                    simple: { runStep: simpleStep, walkPad: "#stepPad", walkTime:2000 },
+                    youtube: { runStep: youtubeStep, videoPad: "#videoPad", width: 400, height: 300, maxDuration: 20000, noVideoDuration:2000 },
+                    delay: { runStep: delayStep, duration: 1000},
+                    byStep: { stepDataIndex:2}                   
+                }
             }
         }
     };
     var replaceOptions = { grid:{ show: false} };
     var defaultOptions = { };
-    function addStepData(stepData,actionData){
+    function simpleStep(stepData,actionData){
         var dfd,t;
         if(actionData.walkPad) {
            dfd = $.Deferred();
@@ -79,6 +80,12 @@ THE SOFTWARE.
             dfd.resolve(); 
         }
     }	
+    function delayStep(stepData,actionData){
+        var dfd,t;
+        dfd = $Deferred();
+        t = window.setTimeout(function(){ dfd.resolve();},actionData.duration);
+        return dfd.promise();
+    }
     function init(plot, classes){ 
         var data = null, opt = null, plt = null, series = null;
         var done = false, actualStep = 0, maxSteps = 0, defs = [];
@@ -93,17 +100,6 @@ THE SOFTWARE.
                 plot.hooks.bindEvents.push(bindEvents);
                 if(opt.series.video.debug.active === true) {opt.series.video.debug.createDocuTemplate = createDocuTemplate; }
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"data",tree:series.data},
-                {name:"options.series.video",tree:options.series.video,takeDefault:true},
-                {name:"options.series.video",tree:opt.series.video}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
         }
         function draw(plot,ctx){
             var i,j;
@@ -130,21 +126,25 @@ THE SOFTWARE.
             }
         }
         function videoLoop(){
-            var i,defs = [],r,v;
+            var i,defs = [],r,v, dt;
             for(var i = 0; i < data.length; i++){ 
                 if(data[i].video.show === true){
                     data[i].data[actualStep] = data[i].dataOrg[actualStep];
                     plt.setData(data);
                     plt.draw();
                     v = data[i].video;
-                    r = { seriesIndex:i, dataIndex:actualStep, data:data[i].data[actualStep], serie: data[i]};
-                    if(typeof v.stepAction === "string"){
-                        defs.push(v.stepCollection[v.stepAction].runStep(r,v.stepCollection[v.stepAction])); }
-                    else if(typeof v.stepAction === "object"){defs.push(v.stepAction.runStep(r,v.stepAction)); }
+                    if(v.stepAction === "byStep"){ callAction(v.data[i].data[i][v.stepCollection.byStep.stepDataIndex]); }
+                    else { callAction(v.stepAction); }
                 }
             }
             actualStep++;
             if(actualStep < maxSteps){ $.when.apply(null,defs).then(function(){videoLoop();}); }
+            function callAction(v){       
+                r = { seriesIndex:i, dataIndex:actualStep, data:data[i].data[actualStep], serie: data[i]};
+                if(typeof v.stepAction === "string"){
+                    defs.push(v.stepCollection[v.stepAction].runStep(r,v.stepCollection[v.stepAction])); }
+                else if(typeof v.stepAction === "object"){defs.push(v.stepAction.runStep(r,v.stepAction)); }
+            }
         }
         function clone(obj){
             if(obj === null || typeof(obj) !== 'object'){ return obj;}

@@ -40,8 +40,7 @@ THE SOFTWARE.
                         stepMode: "linear",
                         stepDirection: "up"
                     }                    
-                ],
-                debug:{active:false,createDocuTemplate: null}
+                ]
             }
         }
     };
@@ -55,21 +54,7 @@ THE SOFTWARE.
         var valueIndex;
         plot.hooks.bindEvents.push(processbindEvents);
         plot.hooks.drawSeries.push(processSeries);
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"data",tree:serie.data},
-                {name:"options.series.grow",tree:options.series.grow,takeDefault:true},
-                {name:"options.series.grow",tree:opt.series.grow},
-                {name:"options.series.editMode",tree:options.series.editMode,takeDefault:true},
-                {name:"options.series.editMode",tree:opt.series.editMode},
-                {name:"options.series.nearBy",tree:options.series.nearBy,takeDefault:true},
-                {name:"options.series.nearBy",tree:opt.series.nearBy}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
-        }		
+        plot.hooks.shutdown.push(shutdown);		
         function processSeries(plot, canvascontext, series){
             opt = plot.getOptions();
             valueIndex = opt.series.grow.valueIndex;

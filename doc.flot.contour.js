@@ -47,12 +47,6 @@ $.plot.JUMExample.docu.contour = {
 "docu":"show specific serie. this needs to be overwritten in data","defVal":"false"}
 ,"ellipseStep":{
 "docu":"drawing of contour ellipse is based on code found in the internet. There was no author, so if you are the one, please give me a hint.<br><br>ellipseStep is used to define how perfect the ellipse should be, take a higher value to see what this means","defVal":"0.1"}
-,"debug":{
-"docu":"for debugging reasons. Right now, create a template for documentation is supported. This is filled by already existing docu, and converted to a formular to edit. After editing the edited data can be stringified to be copied to the docu-object.","active":{
-"docu":"Activate the button for creating a template in my examples","defVal":"false"}
-,"createDocuTemplate":{
-"docu":"If debug.active is true, this holds the function which is used to create the template for documentation","defVal":" createDocuTemplate()"}
-}
 }
 ,"nearBy":{
 "docu":"data used to support findItem for hover, click etc.<br><br>this part is not tested very well yet and needs to be rebuilt","distance":{

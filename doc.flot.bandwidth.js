@@ -53,12 +53,6 @@ $.plot.JUMExample.docu.bandwidth = {
 }
 ,"drawBandwidth":{
 "docu":"Function call which is used for drawing of one bar for Bandwidth. This can be replaced by user defined function. Take a closer look to source of examples to see more.","defVal":"none"}
-,"debug":{
-"docu":"for debugging reasons. Right now, create a template for documentation is supported. This is filled by already existing docu, and converted to a formular to edit. After editing the edited data can be stringified to be copied to the docu-object.","defVal":"none","active":{
-"docu":"Activate the button for creating a template","defVal":"false"}
-,"createDocuTemplate":{
-"docu":"If debug.active is true, this holds the function which is used to create the template for documentation","defVal":"none"}
-}
 }
 ,"editMode":{
 "docu":"Default Editmode for bandwidth. See mouse plugin for more information. This value may be overdriven during editing, to support changing of X(can be changed in X-direction only), High and Low(both can be changed in Y-direction only).","defVal":"y"}

@@ -59,12 +59,6 @@ $.plot.JUMExample.docu.video = {
 "docu":"Duration of step if no video information is available","defVal":"2000"}
 }
 }
-,"debug":{
-"docu":"for debugging reasons. Right now, create a template for documentation is supported. This is filled by already existing docu, and converted to a formular to edit. After editing the edited data can be stringified to be copied to the docu-object.","active":{
-"docu":"Activate the button for creating a template in my examples","defVal":"false"}
-,"createDocuTemplate":{
-"docu":"If debug.active is true, this holds the function which is used to create the template for documentation","defVal":" createDocuTemplate()"}
-}
 }
 }
 }

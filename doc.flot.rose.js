@@ -57,12 +57,6 @@ $.plot.JUMExample.docu.rose = {
 "docu":"Describes how highlighting (in case of HOVER) is displayed","opacity":{
 "docu":"Default for highlighting is to change opacity only","defVal":"0.5"}
 }
-,"debug":{
-"docu":"Open functions for debugging/administration of plugin. Right now this is used to create a formular to support editing of documentation","active":{
-"docu":"set a function to create the formular","defVal":"false"}
-,"createDocuTemplate":{
-"docu":"if debug is true, the function is accessible","defVal":" createDocuTemplate()"}
-}
 }
 }
 }

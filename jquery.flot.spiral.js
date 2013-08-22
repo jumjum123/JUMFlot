@@ -34,8 +34,7 @@ THE SOFTWARE.
                 rotations: 3,
                 steps : 36,
                 delay: 50,
-                highlight: { opacity: 0.5 },
-                debug:{active:false,createDocuTemplate: null}
+                highlight: { opacity: 0.5 }
             }
         }
     };
@@ -64,17 +63,6 @@ THE SOFTWARE.
                 plot.hooks.drawSeries.push(drawSeries);
                 if(opt.series.spiral.debug.active === true) { opt.series.spiral.debug.createDocuTemplate = createDocuTemplate; }
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"data",tree:series.data},
-                {name:"options.series.spiral",tree:options.series.spiral,takeDefault:true},
-                {name:"options.series.spiral",tree:opt.series.spiral}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
         }
         function drawSeries(plot, ctx, serie){
             var j;

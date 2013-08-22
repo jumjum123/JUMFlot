@@ -35,8 +35,7 @@ THE SOFTWARE.
                 directions: "tlbr",   //any combination of first char for top,left,bottom,right
                 highlight: { opacity: 0.5 },
                 drawRectangle: drawRectangleDefault,
-                label: { show:false, fillStyle:"black"},
-                debug:{active:false,createDocuTemplate: null}
+                label: { show:false, fillStyle:"black"}
             }
         }
     };
@@ -100,21 +99,6 @@ THE SOFTWARE.
                 s.nearBy.drawHover = drawHoverRectangle; 
                 s.nearBy.findItem = findNearbyItemRectangle;
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"data",tree:series.data},
-                {name:"options.series.rectangle",tree:options.series.rectangle,takeDefault:true},
-                {name:"options.series.rectangle",tree:opt.series.rectangle},
-                {name:"options.series.editMode",tree:options.series.editMode,takeDefault:true},
-                {name:"options.series.editMode",tree:opt.series.editMode},
-                {name:"options.series.nearBy",tree:options.series.nearBy,takeDefault:true},
-                {name:"options.series.nearBy",tree:opt.series.nearBy}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
         }
         function drawSeries(plot, ctx, serie){
             var top = 0,left = 0, width = 100, height = 100,j;

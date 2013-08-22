@@ -35,8 +35,7 @@ THE SOFTWARE.
                 dataMin: 0,
                 dataMax: 100,
                 drawGrid: {drawValue:true, drawLabel: true, labelPos:0.5, gridMode: "data"},
-                highlight: { opacity: 0.5 },
-                debug:{active:false,createDocuTemplate: null}
+                highlight: { opacity: 0.5 }
             }
         }
     };
@@ -67,17 +66,6 @@ THE SOFTWARE.
                 plot.hooks.draw.push(draw);
                 if(opt.series.rose.debug.active === true) { opt.series.rose.debug.createDocuTemplate = createDocuTemplate; }
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"data",tree:series.data},
-                {name:"options.series.rose",tree:options.series.rose,takeDefault:true},
-                {name:"options.series.rose",tree:opt.series.rose}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
         }
         function processRawData(plot,series,data,datapoints){
             if(series.rose.show === true){

@@ -44,8 +44,7 @@ THE SOFTWARE.
                     legScaleMin: 0.95,
                     legScaleMax: 1.05,
                     legStartAngle: 0 
-                },
-                debug:{active:false,createDocuTemplate: null}
+                }
             }
         }
     };
@@ -88,21 +87,6 @@ THE SOFTWARE.
                 s.nearBy.findItem = findNearbyItemSpider;
                 s.nearBy.drawHover = drawHoverSpider;
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"data",tree:series.data},
-                {name:"options.series.spider",tree:options.series.spider,takeDefault:true},
-                {name:"options.series.spider",tree:opt.series.spider},
-                {name:"options.series.editMode",tree:options.series.editMode,takeDefault:true},
-                {name:"options.series.editMode",tree:opt.series.editMode},
-                {name:"options.series.nearBy",tree:options.series.nearBy,takeDefault:true},
-                {name:"options.series.nearBy",tree:opt.series.nearBy}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMlib.docu.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
         }
         function draw(plot, ctx){
             data = plot.getData();

@@ -34,8 +34,7 @@ THE SOFTWARE.
                 lineWidth: 2,
                 highlight: { opacity: 0.5 },
                 drawbubble: drawbubbleDefault,
-                bubblelabel: { show:false, fillStyle:"black"},
-                debug:{active:false,createDocuTemplate: null}
+                bubblelabel: { show:false, fillStyle:"black"}
             }
         }
     };
@@ -87,21 +86,6 @@ THE SOFTWARE.
                 //s.nearBy.drawHover = drawHoverBubbles; 
                 //s.nearBy.findItem = findNearbyItemBubbles;
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"data",tree:series.data},
-                {name:"options.series.bubbles",tree:options.series.bubbles,takeDefault:true},
-                {name:"options.series.bubbles",tree:opt.series.bubbles},
-                {name:"options.series.editMode",tree:options.series.editMode,takeDefault:true},
-                {name:"options.series.editMode",tree:opt.series.editMode},
-                {name:"options.series.nearBy",tree:options.series.nearBy,takeDefault:true},
-                {name:"options.series.nearBy",tree:opt.series.nearBy}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
         }
         function drawSeries(plot, ctx, serie){
             if (serie.bubbles.show) {

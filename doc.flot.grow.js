@@ -47,12 +47,6 @@ $.plot.JUMExample.docu.grow = {
 "docu":"defines how each step is performed. Options are linear (step by step, everything is growing to the end), maximum (grow until value is reached, growing stops earlier for smaller values) and delayed (nothing and start later)","defVal":"linear"}
 ,"stepDirection":{
 "docu":"direction of steps up(from 0 to value) or down(from axis.max to value)","defVal":"up"}
-,"debug":{
-"docu":"for debugging reasons. Right now, create a template for documentation is supported. This is filled by already existing docu, and converted to a formular to edit. After editing the edited data can be stringified to be copied to the docu-object.","active":{
-"docu":"Activate the button for creating a template","defVal":"false"}
-,"createDocuTemplate":{
-"docu":"If debug.active is true, this holds the function which is used to create the template for documentation","defVal":" createDocuTemplate()"}
-}
 }
 ,"editMode":{
 "docu":"not supported"}

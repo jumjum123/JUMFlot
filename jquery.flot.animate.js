@@ -29,9 +29,9 @@ THE SOFTWARE.
             mode:"tile",  //tile,pixastic, more to follow
             tile:{ x:3, y:3, mode:"lt"},   //
             pixastic:{ maxValue: 1, mode:"blurfast"},
+            sorting: {x:5,y:5, mode:"bubble"},
             stepDelay:500,
-            steps:20,
-            debug:{active:false,createDocuTemplate: null}
+            steps:20
         }
     };
     function init(plot,classes){
@@ -44,16 +44,6 @@ THE SOFTWARE.
                 opt = options;
                 if(options.animate.debug.active === true) {opt.animate.debug.createDocuTemplate = createDocuTemplate; }
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"options.animate",tree:options.animate,takeDefault:true},
-                  {name:"options.animate",tree:opt.animate}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
         }
         function draw(plot,ctx){
             lctx = ctx;
@@ -73,6 +63,8 @@ THE SOFTWARE.
                     animateTile(opt.animate.tile); break;
                 case "pixastic":
                     animatePixastic(opt.animate.pixastic); break;
+                case "sorting":
+                    animateSorting(opt.animate.sorting); break;
                 default:
                     lctx.putImageData(actx.getImageData(0,0,actx.canvas.width,actx.canvas.height),0,0);
             }
@@ -161,6 +153,102 @@ THE SOFTWARE.
                     }
                 }
             }
+            function animateSorting(lopt){
+                var lfd = [], unsorted = [],changing = [], l = lopt.x * lopt.y,t,
+                    w = lctx.canvas.width / lopt.x,h = lctx.canvas.height / lopt.y,
+                    duration = opt.animate.stepDelay, startdate = new Date();
+                for(var i = 0; i < l; i++){ lfd.push(i); }
+                for(var i = l - 1; i >=0; i--){ t = Math.floor(Math.random() * i); unsorted.push(lfd[t]); lfd.splice(t,1);}
+                drawUnsorted(unsorted);
+                switch(lopt.mode){
+                    case "bubble":
+                        changing = bubbleSort(unsorted); break;
+                    case "quick":
+                        changing = quickSort(unsorted); break;
+                    case "selection":
+                        changing = selectionSort(unsorted); break;
+                    default:
+                        changing = bubbleSort(unsorted);
+                }
+                animating();
+                duration = duration - (new Date() - startdate);
+                animateFunc = window.setInterval(animating,duration);
+                function drawUnsorted(a){
+                    var x,y,x2,y2;
+                    for(var i = 0; i < a.length; i++){ 
+                        y = Math.floor(a[i] / lopt.x);
+                        x = a[i] - y * lopt.x;
+                        y2 = Math.floor(i / lopt.x);
+                        x2 = i - y2 * lopt.y;
+                        lctx.putImageData(actx.getImageData(x * w,y * h,w,h),x2 * w, y2 * h);
+                    }
+                }
+                function bubbleSort(a){
+                    var n=0, z=0, change = [], h;
+                    while (n < a.length) {
+                        z=0;
+                        while (z < a.length - n - 1) {
+                            if (a[z] > a[z+1]) { 
+                                h = a[z]; a[z] = a[z+1]; a[z+1] = h;
+                                change.push([z,z+1]); 
+                            }
+                            ++z;
+                        }
+                        ++n;
+                    }
+                    return change;
+                }
+                function quickSort(a){
+                    var chng = [];
+                    quickSortSub(a,0,a.length-1);
+                    return chng;
+                    function quickSortSub(a, l, r) {
+                        var index;
+                        if (a.length > 1) {
+                            index = partition(a, l, r);
+                            if (l < index - 1) {quickSortSub(a, l, index - 1); }
+                            if (index < r) {quickSortSub(a, index, r); }
+                        }
+                        return a;
+                    }
+                    function partition(a, l, r) {
+                        var pivot = a[Math.floor((r + l) / 2)],i = l,j = r, z;
+                        while (i <= j) {
+                            while (a[i] < pivot) { i++; }
+                            while (a[j] > pivot) { j--; }
+                            if (i <= j) {
+                                z = a[i]; a[i] = a[j]; a[j] = z;
+                                chng.push([i,j]); i++; j--;
+                            }
+                        }
+                        return i;
+                    }
+                }
+                function selectionSort(a){
+                    var len = a.length,min, t,j, chng = [];
+                    for (i=0; i < len; i++){
+                        min = i;
+                        for (j=i+1; j < len; j++){ if (a[j] < a[min]){ min = j; } }
+                        if (i != min){ t = a[i]; a[i] = a[min];a[min] = t; chng.push([i,min]); }
+                    }
+                    return chng;
+                }
+                function animating(){
+                    var tmp1,tmp2,x,y,x2,y2;
+                    if(changing.length === 0){ window.clearInterval(animateFunc);}
+                    else{
+                        y = Math.floor(changing[0][0] / lopt.x);
+                        x = changing[0][0] - y * lopt.x;
+                        y2 = Math.floor(changing[0][1] / lopt.x);
+                        x2 = changing[0][1] - y2 * lopt.x;
+                        changing.splice(0,1);
+                        tmp1 = lctx.getImageData(x * w, y * h,w,h);
+                        tmp2 = lctx.getImageData(x2 * w, y2 * h,w,h);
+                        lctx.putImageData(tmp2,x * w, y * h);
+                        lctx.putImageData(tmp1,x2 * w, y2 * h); 
+                    }
+                }
+            }
         }
     }
     var getColor = $.plot.JUMlib.data.getColor;
@@ -170,4 +258,4 @@ THE SOFTWARE.
         name: pluginName,
         version: pluginVersion
     });
-})(jQuery); 
+})(jQuery);

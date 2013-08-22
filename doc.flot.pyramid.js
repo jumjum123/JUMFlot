@@ -22,10 +22,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-$.plot.JUMExample.docu.pyramid = {
+$.plot.JUMExample.docu.pyramids = {
 "docu":"Documentation","pyramid":{
-"docu":"Plugin to create pyramid charts","data":{
-"docu":"Data Array specific for pyramid chart","0":{
+"docu":"Plugin to create pyramids charts","data":{
+"docu":"Data Array specific for pyramids chart","0":{
 "docu":"first data entry","value":{
 "docu":"Value(size) for data slice"}
 ,"label":{
@@ -33,9 +33,9 @@ $.plot.JUMExample.docu.pyramid = {
 }
 }
 ,"options":{
-"docu":"options for pyramid","series":{
-"docu":"series options for pyramid","pyramid":{
-"docu":"pyramid only options","active":{
+"docu":"options for pyramids","series":{
+"docu":"series options for pyramids","pyramids":{
+"docu":"pyramids only options","active":{
 "docu":"activate the plugin","defVal":"false"}
 ,"show":{
 "docu":"how specific serie. this needs to be overwritten in data","defVal":"false"}
@@ -43,12 +43,6 @@ $.plot.JUMExample.docu.pyramid = {
 "docu":"Decribes how a slice is shown. Actually pyramid and slice are supported","defVal":"pyramid"}
 ,"fill":{
 "docu":"Switches Fillmode for drawing of a slice","defVal":"true"}
-,"debug":{
-"docu":"for debugging reasons. Right now, create a template for documentation is supported. This is filled by already existing docu, and converted to a formular to edit. After editing the edited data can be stringified to be copied to the docu-object.","active":{
-"docu":"Activate the button for creating a template","defVal":"false"}
-,"createDocuTemplate":{
-"docu":" If debug.active is true, this holds the function which is used to create the template for documentation","defVal":" createDocuTemplate()"}
-}
 ,"highlight":{
 "docu":"Used to highlight in case of HOVER","opacity":{
 "docu":"only Opacity is supported for Highlighting (yet)","defVal":"0.5"}

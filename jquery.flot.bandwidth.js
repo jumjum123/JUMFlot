@@ -33,8 +33,7 @@ THE SOFTWARE.
                 fill: true,
                 lineWidth: "4px",
                 highlight: { opacity: 0.5 },
-                drawBandwidth: drawBandwidthDefault,
-                debug:{active:false,createDocuTemplate: null}
+                drawBandwidth: drawBandwidthDefault
             }
         }
     };
@@ -77,21 +76,6 @@ THE SOFTWARE.
                 s.nearBy.findItem = findNearbyItemBandwidth;
                 s.nearBy.drawHover = drawHoverBandwidth;
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"data",tree:series.data},
-                {name:"options.series.bandwidth",tree:options.series.bandwidth,takeDefault:true},
-                {name:"options.series.bandwidth",tree:opt.series.bandwidth},
-                {name:"options.series.editMode",tree:options.series.editMode,takeDefault:true},
-                {name:"options.series.editMode",tree:opt.series.editMode},
-                {name:"options.series.nearBy",tree:options.series.nearBy,takeDefault:true},
-                {name:"options.series.nearBy",tree:opt.series.nearBy}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
         }
         function drawSeries(plot, ctx, serie){
             if(serie.bandwidth.show){

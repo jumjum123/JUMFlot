@@ -97,12 +97,6 @@ $.plot.JUMExample.docu.spider = {
 }
 }
 }
-,"debug":{
-"docu":"","active":{
-"docu":"","defVal":"false"}
-,"createDocuTemplate":{
-"docu":"","defVal":" createDocuTemplate()"}
-}
 }
 ,"editMode":{
 "docu":""}

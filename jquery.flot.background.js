@@ -31,8 +31,7 @@ THE SOFTWARE.
                 color:{colors:["white","yellow","orange","blue"] },
                 image:null,
                 fncDraw:null,
-                setZIndex: false,
-                debug:{active:false,createDocuTemplate: null}
+                setZIndex: false
             },
             overlay:{
                 active:false,
@@ -53,18 +52,6 @@ THE SOFTWARE.
                 if(options.grid.overlay.active === true) plot.hooks.draw.push(draw);
                 if(options.grid.background.debug.active === true) {opt.grid.background.debug.createDocuTemplate = createDocuTemplate; }
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"options.grid.background",tree:opt.grid.background,takeDefault:true},
-                  {name:"options.grid.background",tree:options.grid.background,takeDefault:true},
-                  {name:"options.grid.overlay",tree:opt.grid.overlay,takeDefault:true},
-                  {name:"options.grid.overlay",tree:options.grid.overlay,takeDefault:true}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
         }
         function drawBackground(plot,ctx){
             opt = plot.getOptions();

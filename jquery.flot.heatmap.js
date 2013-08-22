@@ -43,8 +43,7 @@ THE SOFTWARE.
                 max : false,
                 gradient : { 0.45: "rgb(0,0,255)", 0.55: "rgb(0,255,255)", 0.65: "rgb(0,255,0)", 0.95: "yellow", 1.0: "rgb(255,0,0)"},
                 opacity: 180,
-                highlight: { opacity: 0.5 },
-                debug:{active:false,createDocuTemplate: null}
+                highlight: { opacity: 0.5 }
             }
         }
     };
@@ -94,21 +93,6 @@ THE SOFTWARE.
                 var img = new Image();
                 img.src = opt.series.heatmap.backImage;
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"data",tree:series.data},
-                {name:"options.series.heatmap",tree:options.series.heatmap,takeDefault:true},
-                {name:"options.series.heatmap",tree:opt.series.heatmap},
-                {name:"options.series.editMode",tree:options.series.editMode,takeDefault:true},
-                {name:"options.series.editMode",tree:opt.series.editMode},
-                {name:"options.series.nearBy",tree:options.series.nearBy,takeDefault:true},
-                {name:"options.series.nearBy",tree:opt.series.nearBy}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
         }
         function drawBackground(plot,ctx){            
             var img;

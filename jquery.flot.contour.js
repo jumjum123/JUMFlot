@@ -30,8 +30,7 @@ THE SOFTWARE.
             contour:{
                 active: false,
                 show: false,
-                ellipseStep: 0.1,
-                debug:{active:false,createDocuTemplate: null}
+                ellipseStep: 0.1
             }
         },
         grid:{
@@ -69,19 +68,6 @@ THE SOFTWARE.
                 s.nearBy.findItem = findNearbyItemcontour;
                 s.nearBy.drawHover = drawHovercontour;
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"data",tree:series.data},
-                {name:"options.series.contour",tree:options.series.contour,takeDefault:true},
-                {name:"options.series.contour",tree:opt.series.contour},
-                {name:"options.series.nearBy",tree:options.series.nearBy,takeDefault:true},
-                {name:"options.series.nearBy",tree:opt.series.nearBy}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
         }
         function drawSeries(plot, ctx, serie){ 
             if(serie.contour.show){

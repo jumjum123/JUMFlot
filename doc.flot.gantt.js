@@ -59,12 +59,6 @@ $.plot.JUMExample.docu.gantt = {
 }
 ,"drawstep":{
 "docu":"","defVal":" drawStepDefault(ctx,series,data,x,y,x2,color, isHighlight)"}
-,"debug":{
-"docu":"Open functions for debugging/administration of plugin. Right now this is used to create a formular to support editing of documentation","active":{
-"docu":"set a function to create the formular","defVal":"false"}
-,"createDocuTemplate":{
-"docu":"if debug is true, the function is accessible","defVal":" createDocuTemplate()"}
-}
 }
 ,"editMode":{
 "docu":"defines in which direction editing could happen. optional values are: x,y,xy,v. This value is changed by the plugin, depending on the way you select a timebar (left, right or body)"}

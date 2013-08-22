@@ -24,15 +24,14 @@ THE SOFTWARE.
 
 (function ($) {
     "use strict";
-    var pluginName = "pyramid", pluginVersion = "0.2";
+    var pluginName = "pyramids", pluginVersion = "0.2";
     var options = {
         series: { 
-            pyramid: {
+            pyramids: {
                 active: false,
                 show: false,
                 mode: "pyramid",
                 fill: true,
-                debug:{active:false,createDocuTemplate: null},
                 highlight: { opacity: 0.5 },
                 label: {
                     show: false,
@@ -72,21 +71,6 @@ THE SOFTWARE.
                 s.nearBy.findItem = findNearbyItemPyramid;
                 s.nearBy.drawHover = drawHoverPyramid;
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"data",tree:series.data},
-                {name:"options.series.pyramid",tree:options.series.pyramid,takeDefault:true},
-                {name:"options.series.pyramid",tree:opt.series.pyramid},
-                {name:"options.series.editMode",tree:options.series.editMode,takeDefault:true},
-                {name:"options.series.editMode",tree:opt.series.editMode},
-                {name:"options.series.nearBy",tree:options.series.nearBy,takeDefault:true},
-                {name:"options.series.nearBy",tree:opt.series.nearBy}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
         }
         function drawSeries(plot, ctx,serie){
             if (serie.pyramid.show) {

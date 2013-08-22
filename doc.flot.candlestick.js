@@ -63,12 +63,6 @@ $.plot.JUMExample.docu.candlestick = {
 }
 ,"drawCandlestick":{
 "docu":"Default function to display each candlestick. This can be overwritten. Please see function mydraw in source of examples page","defVal":" drawCandlestickDefault(ctx,serie,data,hover)"}
-,"debug":{
-"docu":"Open functions for debugging/administration of plugin. Right now this is used to create a formular to support editing of documentation","active":{
-"docu":"set a function to create the formular","defVal":"false"}
-,"createDocuTemplate":{
-"docu":"if debug is true, the function is accessible","defVal":" createDocuTemplate()"}
-}
 }
 ,"editMode":{
 "docu":"defines in which direction editing could happen. optional values are: x,y,xy,v"}

@@ -33,8 +33,7 @@ THE SOFTWARE.
                 connectSteps: { show: false, lineWidth:2, color:"rgb(0,0,0)" },
                 barHeight: 0.6,
                 highlight: { opacity: 0.5 },
-                drawstep: drawStepDefault,
-                debug:{active:false,createDocuTemplate: null}
+                drawstep: drawStepDefault
             }
         }
     };
@@ -79,19 +78,6 @@ THE SOFTWARE.
                 plot.hooks.draw.push(draw);
                 if(opt.series.gantt.debug.active === true) {opt.series.gantt.debug.createDocuTemplate = createDocuTemplate; }
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"data",tree:series.data},
-                {name:"options.series.gantt",tree:options.series.gantt,takeDefault:true},
-                {name:"options.series.gantt",tree:opt.series.gantt},
-                {name:"options.series.editMode",tree:opt.series.editMode},
-                {name:"options.series.nearBy",tree:opt.series.nearBy}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
         }
         function processRawData(plot,s,data,datapoints){
             if(s.gantt.show === true){

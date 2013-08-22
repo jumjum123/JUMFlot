@@ -48,12 +48,6 @@ $.plot.JUMExample.docu.animate = {
 "docu":"Delay in mille secs between steps in pixastic or before drawing next tile","defVal":"500"}
 ,"steps":{
 "docu":"Number of steps, used for pixastic only","defVal":"20"}
-,"debug":{
-"docu":"for debugging reasons. Right now, create a template for documentation is supported. This is filled by already existing docu, and converted to a formular to edit. After editing the edited data can be stringified to be copied to the docu-object.","active":{
-"docu":"Activate the button for creating a template in examples","defVal":"false"}
-,"createDocuTemplate":{
-"docu":"If debug.active is true, this holds the function which is used to create the template for documentation","defVal":" createDocuTemplate()"}
-}
 }
 }
 }

@@ -49,12 +49,6 @@ $.plot.JUMExample.docu.background = {
 "docu":"for calling userdefined backgrounds this is used for a function call. See examples with a clock running in the background"}
 ,"setZIndex":{
 "docu":"option for setting all canvas to a specific value. Very helpful for using jQuery UI.<br>True sets background to 0, drawing area to 1 and highlight to 2<br>A number sets drawing area to the given number, background to number-- and highlight to number++ ","defVal":"false"}
-,"debug":{
-"docu":"for debugging reasons. Right now, create a template for documentation is supported. This is filled by already existing docu, and converted to a formular to edit. After editing the edited data can be stringified to be copied to the docu-object.","active":{
-"docu":"Activates the Debug function","defVal":"false"}
-,"createDocuTemplate":{
-"docu":"if debug.active is true, this holds the function which is used to create the template for documentation"}
-}
 }
 ,"overlay":{
 "docu":"Specific options for drawing overlays. Overlay image is drawn on drawing area with given opacity.<br>This does not work for those plugins, that use hook draw","active":{

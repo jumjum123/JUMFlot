@@ -35,8 +35,7 @@ THE SOFTWARE.
                 angleSize:10,
                 angleSteps:6,
                 color: "darkgreen",
-                backColor: "darkgreen",
-                debug:{active:false,createDocuTemplate: null}
+                backColor: "darkgreen"
             }
         }
     };
@@ -54,18 +53,7 @@ THE SOFTWARE.
                 plot.hooks.draw.push(draw);
                 if(opt.series.radar.debug.active === true) {opt.series.radar.debug.createDocuTemplate = createDocuTemplate; }
             }
-        }
-        function createDocuTemplate(){
-            var z,frm;
-            z = $.plot.JUMExample.docuObjectToTemplate(
-                [ {name:"data",tree:series.data},
-                {name:"options.series.radar",tree:options.series.radar,takeDefault:true},
-                {name:"options.series.radar",tree:opt.series.radar}
-                ],pluginName); 
-            $.plot.JUMExample.extendDocuObject(z,pluginName);
-            frm = $.plot.JUMExample.docuObjectToEdit(z,"");
-            return { data:z, form:frm};
-        }    
+        }  
         function processRawData(plot,s,data,datapoints){
             if(s.radar.show === true)
             { }
