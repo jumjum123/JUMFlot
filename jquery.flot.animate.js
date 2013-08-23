@@ -42,7 +42,6 @@ THE SOFTWARE.
                 plot.hooks.draw.push(draw);
                 plot.hooks.bindEvents.push(bindEvents);
                 opt = options;
-                if(options.animate.debug.active === true) {opt.animate.debug.createDocuTemplate = createDocuTemplate; }
             }
         }
         function draw(plot,ctx){

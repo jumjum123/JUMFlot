@@ -78,7 +78,6 @@ THE SOFTWARE.
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.draw.push(draw);
-                if(opt.series.spider.debug.active === true) {opt.series.spider.debug.createDocuTemplate = createDocuTemplate; }
             }
         }
         function processRawData(plot,s,data,datapoints){

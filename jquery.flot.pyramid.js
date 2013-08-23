@@ -63,7 +63,6 @@ THE SOFTWARE.
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawSeries.push(drawSeries);
-                if(opt.series.pyramid.debug.active === true) { opt.series.pyramid.debug.createDocuTemplate = createDocuTemplate; }
             }
         }
         function processRawData(plot,s,data,datapoints){

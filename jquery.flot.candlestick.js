@@ -107,7 +107,6 @@ THE SOFTWARE.
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawSeries.push(drawSeries);
-                if(opt.series.candlestick.debug.active === true) {opt.series.candlestick.debug.createDocuTemplate = createDocuTemplate; }
             }
         }
         function processRawData(plot,s,data,datapoints){

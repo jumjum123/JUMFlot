@@ -50,7 +50,6 @@ THE SOFTWARE.
                 opt = options;
                 plot.hooks.drawBackground.push(drawBackground);
                 if(options.grid.overlay.active === true) plot.hooks.draw.push(draw);
-                if(options.grid.background.debug.active === true) {opt.grid.background.debug.createDocuTemplate = createDocuTemplate; }
             }
         }
         function drawBackground(plot,ctx){

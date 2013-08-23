@@ -51,7 +51,6 @@ THE SOFTWARE.
                 opt = options;
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.draw.push(draw);
-                if(opt.series.radar.debug.active === true) {opt.series.radar.debug.createDocuTemplate = createDocuTemplate; }
             }
         }  
         function processRawData(plot,s,data,datapoints){

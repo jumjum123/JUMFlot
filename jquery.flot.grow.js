@@ -59,10 +59,6 @@ THE SOFTWARE.
             opt = plot.getOptions();
             valueIndex = opt.series.grow.valueIndex;
             if(opt.series.grow.active === true){
-                if(opt.series.grow.debug.active === true) { 
-                    serie = series;
-                    opt.series.grow.debug.createDocuTemplate = createDocuTemplate;
-                }
                 if (done === false){
                     data = plot.getData();
                     data.actualStep = 0;

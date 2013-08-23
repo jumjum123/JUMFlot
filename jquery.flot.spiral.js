@@ -61,7 +61,6 @@ THE SOFTWARE.
                 $.plot.JUMlib.data.extendEmpty(options,defaultOptions);
                 opt = options;
                 plot.hooks.drawSeries.push(drawSeries);
-                if(opt.series.spiral.debug.active === true) { opt.series.spiral.debug.createDocuTemplate = createDocuTemplate; }
             }
         }
         function drawSeries(plot, ctx, serie){

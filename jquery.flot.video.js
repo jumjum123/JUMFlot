@@ -98,7 +98,6 @@ THE SOFTWARE.
                 opt = options;
                 plot.hooks.draw.push(draw);
                 plot.hooks.bindEvents.push(bindEvents);
-                if(opt.series.video.debug.active === true) {opt.series.video.debug.createDocuTemplate = createDocuTemplate; }
             }
         }
         function draw(plot,ctx){

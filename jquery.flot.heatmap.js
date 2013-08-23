@@ -67,7 +67,6 @@ THE SOFTWARE.
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawBackground.push(drawBackground);
                 plot.hooks.drawSeries.push(drawSeries);
-                if(opt.series.heatmap.debug.active === true) { opt.series.heatmap.debug.createDocuTemplate = createDocuTemplate; }
                 initColorPalette();
             }
         }

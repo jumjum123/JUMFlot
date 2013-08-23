@@ -60,7 +60,6 @@ THE SOFTWARE.
                 plot.hooks.processRawData.push(processRawData);
                 plot.hooks.drawSeries.push(drawSeries);
                 if(opt.grid.overlay.image){ plot.hooks.draw.push(draw);}
-                if(opt.series.contour.debug.active === true) {opt.series.contour.debug.createDocuTemplate = createDocuTemplate; }
             }
         }
         function processRawData(plot,s,data,datapoints){

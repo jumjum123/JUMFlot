@@ -64,7 +64,6 @@ THE SOFTWARE.
                 opt = options;
                 plot.hooks.drawSeries.push(drawSeries);
                 plot.hooks.draw.push(draw);
-                if(opt.series.rose.debug.active === true) { opt.series.rose.debug.createDocuTemplate = createDocuTemplate; }
             }
         }
         function processRawData(plot,series,data,datapoints){
