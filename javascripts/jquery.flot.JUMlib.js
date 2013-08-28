@@ -23,6 +23,7 @@ THE SOFTWARE.
 */
 (function ($) {
     "use strict";
+    var pluginName = "JUMlib", pluginVersion = "0.5";
     function between(v,limit1,limit2){
         if(limit2 > limit1){ return (v >= limit1 && v <= limit2); }
         else{ return(v >=limit2 && v <= limit1); }
@@ -65,7 +66,35 @@ THE SOFTWARE.
             border: '1px solid #fdd',padding: '2px','background-color': '#fee',opacity: 0.80
         }).appendTo("body").fadeIn(200);
     }
-
+    function loadScripts(scripts,maxWait,callback){
+        var loadedScripts = {},defs = [];
+        for(var i = 0; i < scripts.length; i++){ defs.push(loadScript(scripts[i].path,scripts[i].name)); }
+        $.when.apply(null,defs).then(function(){callback(loadedScripts);});
+        function loadScript(path,name){
+            var dfd = $.Deferred(),t;
+            t = setInterval(function(){clearInterval(t);dfd.reject();},maxWait);
+            $.getScript(path).done(loaded).fail(errorFound);
+            return dfd.promise();
+            function loaded(){ loadedScripts[name] = true;dfd.resolve();}
+            function errorFound(e,f,g){console.log(path,e); loadedScripts[name] = false;dfd.reject();}    
+        }
+    }
+    function loadJSON(scripts,maxWait,callback){
+        var loadedJSON = {},defs = [];
+        for(var i = 0;i < scripts.length; i++){ defs.push(loadJSON(scripts[i].path,scripts[i].name)); }
+        $.when.apply(null,defs).then(function(){ callback(loadedJSON);});
+        function loadJSON(path,name){
+            var dfd = $.Deferred(),t;
+            t = setInterval(function(){clearInterval(t);dfd.reject();},maxWait);
+            $.getJSON(path,function(data){
+                loadedJSON[name] = {data:data,name:name,loaded:true};
+            }).done(loaded).fail(errorFound);
+            return dfd.promise();
+            function loaded(){ dfd.resolve(); }
+            function errorFound(e,f,g){ loadedJSON[name] = {name:name,loaded:false};dfd.reject();}
+        }
+    }
+    
     function createQuartile(data, index, indexName){
         var q0 = [], q1 = [],q2 = [],q3 = [],q4 = [], v = [], i1, i2, i3, i4, p;
         i1 = (0.25 * data.length).toFixed(0); i2 = (0.5 * data.length).toFixed(0);
@@ -408,8 +437,8 @@ THE SOFTWARE.
             if(!fl.dataFieldY){ fl.dataFieldY = 1;}
             if(!tl.dataFieldX){ tl.dataFieldX = 0;}
             if(!tl.dataFieldY){ tl.dataFieldY = 1;}
-            var fromPos = {xaxis:from.xaxis, yaxis:from.yaxis, x:from.data[fl.dataIndex][fl.dataFieldIndex], y:from.data[fl.dataIndex][fl.dataFieldY]}, 
-                toPos = {xaxis:to.xaxis, yaxis:to.yaxis, x:to.data[tl.dataIndex][ft.dataFieldIndex], y:to.data[tl.dataIndex][tl.dataFieldY]},
+            var fromPos = {xaxis:from.xaxis, yaxis:from.yaxis, x:from.data[fl.dataIndex][fl.dataFieldX], y:from.data[fl.dataIndex][fl.dataFieldY]}, 
+                toPos = {xaxis:to.xaxis, yaxis:to.yaxis, x:to.data[tl.dataIndex][tl.dataFieldX], y:to.data[tl.dataIndex][tl.dataFieldY]},
                 lineStyle = {strokeStyle:"red", lineWidth:5};
             drawLine(plot,ctx,fromPos,toPos,lineStyle);     
         }
@@ -456,6 +485,8 @@ THE SOFTWARE.
     $.plot.JUMlib.library.getMinMax = getMinMax;
     $.plot.JUMlib.library.showHover = showHover;
     $.plot.JUMlib.library.showTooltip = showTooltip;
+    $.plot.JUMlib.library.loadScripts = loadScripts;
+    $.plot.JUMlib.library.loadJSON = loadJSON;
     $.plot.JUMlib.prepareData = {};
     $.plot.JUMlib.prepareData.createQuartile = createQuartile;
     $.plot.JUMlib.prepareData.createPercentile = createPercentile;
@@ -480,4 +511,10 @@ THE SOFTWARE.
     $.plot.JUMlib.drawing.drawLine = drawLine;
     $.plot.JUMlib.drawing.drawRect = drawRect;
     $.plot.JUMlib.drawing.drawLines = drawLines;
+    $.plot.plugins.push({
+        init: function(){},
+        options: { },
+        name: pluginName,
+        version: pluginVersion
+    });
 })(jQuery);

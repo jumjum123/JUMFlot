@@ -37,7 +37,6 @@ THE SOFTWARE.
 			r += objectToDocumentation(op[i].data,pluginname + "." + pluginname + ".options");
 		}
 		$("#placeholderOption").html(r);
-		if(debugOn === false) { $(".flot_debug").hide(); } 
 		$("#tabs").tabs();
 		try{showSource("../../Experimental/jquery.Flot." + pluginname + ".js");}
 		catch(e){console.log(e);}
