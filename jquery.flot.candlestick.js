@@ -70,7 +70,7 @@ THE SOFTWARE.
         }
         function drawBody(ctx,serie,data){
             var x,y1,y2,c;
-            x = serie.xaxis.p2c(data[0] - serie.candlestick.barWidth / 2);
+            x = serie.xaxis.p2c(data[0]);
             y1 = serie.yaxis.p2c(data[1]);
             y2 = serie.yaxis.p2c(data[2]);
             if(data[1] > data[2]){ c = serie.candlestick.upColor;} else{ c = serie.candlestick.downColor;}
@@ -117,7 +117,6 @@ THE SOFTWARE.
         }
         function drawSeries(plot, ctx, serie){
             if(serie.candlestick.show === true){        
-                if(opt.series.candlestick.debug.active === true) { series = serie;}
                 if(typeof(serie.candlestick.lineWidth) === 'string'){
                     serie.candlestick.barWidth = parseInt(serie.candlestick.lineWidth,0);
                     serie.nearBy.width = serie.candlestick.barWidth;
