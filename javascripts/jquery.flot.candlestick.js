@@ -116,6 +116,7 @@ THE SOFTWARE.
             }
         }
         function drawSeries(plot, ctx, serie){
+            var data;
             if(serie.candlestick.show === true){        
                 if(typeof(serie.candlestick.lineWidth) === 'string'){
                     serie.candlestick.barWidth = parseInt(serie.candlestick.lineWidth,0);
@@ -129,7 +130,13 @@ THE SOFTWARE.
                 offset = plot.getPlotOffset();   
                 ctx.save();
                 ctx.translate(offset.left,offset.top);
-                for(var i = 0; i < serie.data.length; i++){serie.candlestick.drawCandlestick(ctx,serie,serie.data[i],false);}
+                for(var i = 0; i < serie.data.length; i++){
+                    data = serie.data[i];
+                    if(data[0] < serie.xaxis.min || data[0] > serie.xaxis.max) continue;
+                    if(data[3] < serie.yaxis.min || data[3] > serie.yaxis.max) continue;
+                    if(data[4] < serie.yaxis.min || data[4] > serie.yaxis.max) continue;
+                    serie.candlestick.drawCandlestick(ctx,serie,data,false);
+                }
                 ctx.restore();
             }
         }
