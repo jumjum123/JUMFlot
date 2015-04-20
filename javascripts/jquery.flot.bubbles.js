@@ -34,7 +34,8 @@ THE SOFTWARE.
                 lineWidth: 2,
                 highlight: { opacity: 0.5 },
                 drawbubble: drawbubbleDefault,
-                bubblelabel: { show:false, fillStyle:"black"}
+                bubblelabel: { show:false, fillStyle:"black"},
+                multiColors: false
             }
         }
     };
@@ -81,7 +82,13 @@ THE SOFTWARE.
             }
         }
         function processRawData(plot,s,data,datapoints){
-            if(s.bubbles.show == true){
+            if (s.bubbles.show == true) {
+                if (s.bubbles.minBubbleSize !== undefined && s.bubbles.maxBubbleSize !== undefined) {
+                    var maxValue = 0;
+                    for (var i = 0; i < data.length; i++)
+                        maxValue = Math.max(maxValue, data[i][2]);
+                    s.bubbleScale = maxValue == 0 ? 0 : (s.bubbles.maxBubbleSize - s.bubbles.minBubbleSize) / maxValue;
+                }
                 //s.nearBy.drawHover = drawHoverBubbles; 
                 //s.nearBy.findItem = findNearbyItemBubbles;
             }
@@ -93,11 +100,19 @@ THE SOFTWARE.
             }
         }
         function drawbubble(ctx,serie,data,c,overlay){
-            var x,y,r,v;
+            var x,y,r,v,d;
             x = offset.left + serie.xaxis.p2c(data[0]);
             y = offset.top + serie.yaxis.p2c(data[1]);
             v = data[2];
-            r = parseInt(serie.yaxis.scale * data[2] / 2,0);
+            if (serie.bubbles.minBubbleSize !== undefined && serie.bubbles.maxBubbleSize !== undefined) {
+                d = serie.bubbles.minBubbleSize + data[2] * serie.bubbleScale;
+            } else {
+                d = data[2] * serie.yaxis.scale;
+            }
+            r = parseInt(d / 2,0);
+            if (serie.bubbles.multiColors && data[3]) {
+                c = data[3];
+            }
             serie.bubbles.drawbubble(ctx,serie,x,y,v,r,c,overlay);
         }
         function findNearbyItemBubbles(mouseX, mouseY,i,serie){
