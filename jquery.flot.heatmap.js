@@ -105,6 +105,7 @@ THE SOFTWARE.
             }
         }
         function drawSeries(plot, ctx, serie){
+            if(serie.heatmap.show !== true) return;
             //var acanvas,actx;
             if(opt.series.heatmap.debug.active === true) { series = serie;}
             acanvas = document.createElement('canvas');
