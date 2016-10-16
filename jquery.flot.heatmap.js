@@ -89,8 +89,10 @@ THE SOFTWARE.
             if(s.heatmap.show === true){
                 s.nearBy.findItemDefault = s.nearBy.findItem;
                 s.nearBy.findItem = findNearbyItemHeatmap;
-                var img = new Image();
-                img.src = opt.series.heatmap.backImage;
+                if(opt.series.heatmap.backImage){
+                    var img = new Image();
+                    img.src = opt.series.heatmap.backImage;
+                }
             }
         }
         function drawBackground(plot,ctx){            
