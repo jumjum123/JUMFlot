@@ -1,0 +1,20 @@
+{
+  "name": "JUMFlot-axi",
+  "version": "1.0.0",
+  "main": ["JUMFlot.min.js"],
+  "ignore": [
+    "**/.*"
+  ],
+  "homepage": "http://jumflot.jumware.com/IndexJUMFlot.html",
+  "authors": [
+    "Jürgen Marsch"
+  ],
+  "description": "Collection of plugins for Flot",
+  "keywords": [
+    "flot",
+    "charts",
+    "diagrams",
+    "js"
+  ],
+  "license": "MIT"
+}
