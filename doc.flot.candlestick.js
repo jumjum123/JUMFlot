@@ -1,5 +1,5 @@
 /*
- * The MIT License changed
+ * The MIT License
 
 Copyright (c) 2010, 2011, 2012, 2013 by Juergen Marsch
 
