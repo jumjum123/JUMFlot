@@ -89,8 +89,10 @@ THE SOFTWARE.
             if(s.heatmap.show === true){
                 s.nearBy.findItemDefault = s.nearBy.findItem;
                 s.nearBy.findItem = findNearbyItemHeatmap;
-                var img = new Image();
-                img.src = opt.series.heatmap.backImage;
+                if(opt.series.heatmap.backImage){
+                    var img = new Image();
+                    img.src = opt.series.heatmap.backImage;
+                }
             }
         }
         function drawBackground(plot,ctx){            
@@ -105,6 +107,7 @@ THE SOFTWARE.
             }
         }
         function drawSeries(plot, ctx, serie){
+            if(serie.heatmap.show !== true) return;
             //var acanvas,actx;
             if(opt.series.heatmap.debug.active === true) { series = serie;}
             acanvas = document.createElement('canvas');
