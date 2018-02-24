@@ -1,0 +1,23 @@
+{
+  "name": "JUMFlot",
+  "version": "1.0.0",
+  "main": "./javascripts/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "directories": {
+    "lib": "./javascripts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tqthong0911/JUMFlot.git"
+  },
+  "keywords": [],
+  "author": "tqthong0911 <tqthong0911@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tqthong0911/JUMFlot/issues"
+  },
+  "homepage": "https://github.com/tqthong0911/JUMFlot#readme",
+  "description": ""
+}
